@@ -34,6 +34,7 @@
     "vite": "^4.3.2"
   },
   "dependencies": {
+    "dexie": "^4.0.8",
     "electron-squirrel-startup": "^1.0.0",
     "svelte-splitpanes": "^8.0.5"
   }
