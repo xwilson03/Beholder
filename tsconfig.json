@@ -28,6 +28,7 @@
     "baseUrl": ".",
     "paths": {
         "@/*": ["src/*"],
+        "@app/*": ["electron/*"],
         "@components/*": ["src/components/*"],
         "@db/*": ["src/db/*"],
         "@lib/*": ["src/lib/*"]

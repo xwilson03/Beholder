@@ -12,6 +12,7 @@ export default defineConfig({
   resolve: {
     alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@app': path.resolve(__dirname, 'electron'),
         '@components': path.resolve(__dirname, 'src/components'),
         '@db': path.resolve(__dirname, 'src/db'),
         '@lib': path.resolve(__dirname, 'src/lib'),
