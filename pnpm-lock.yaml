@@ -38,10 +38,13 @@ importers:
         version: 6.4.2
       '@sveltejs/vite-plugin-svelte':
         specifier: ^2.0.3
-        version: 2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12))
+        version: 2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5))
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.7)
+      '@types/node':
+        specifier: ^22.5.5
+        version: 22.5.5
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.19(postcss@8.4.40)
@@ -68,7 +71,7 @@ importers:
         version: 3.4.7
       vite:
         specifier: ^4.3.2
-        version: 4.5.3(@types/node@20.14.12)
+        version: 4.5.3(@types/node@22.5.5)
 
 packages:
 
@@ -420,8 +423,8 @@ packages:
   '@types/node@18.19.42':
     resolution: {integrity: sha512-d2ZFc/3lnK2YCYhos8iaNIYu9Vfhr92nHiyJHRltXWjXUBjEE+A4I58Tdbnw4VhggSW+2j5y5gTrLs4biNnubg==}
 
-  '@types/node@20.14.12':
-    resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
+  '@types/node@22.5.5':
+    resolution: {integrity: sha512-Xjs4y5UPO/CLdzpgR6GirZJx36yScjh73+2NlLlkFRSoQN8B0DpfXPdZGnvVmLRLOsqDpOfTNv7D9trgGhmOIA==}
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
@@ -2021,6 +2024,9 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
   unique-filename@2.0.1:
     resolution: {integrity: sha512-ODWHtkkdx3IAR+veKxFV+VBkUMcN+FaqzUUd7IZzt+0zhDZFPFxhlqwPF3YQvMHx1TD0tdgYl+kuPnJ8E6ql7A==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
@@ -2601,26 +2607,26 @@ snapshots:
 
   '@sindresorhus/is@4.6.0': {}
 
-  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12)))(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12))':
+  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5)))(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12))
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5))
       debug: 4.3.5
       svelte: 3.59.2
-      vite: 4.5.3(@types/node@20.14.12)
+      vite: 4.5.3(@types/node@22.5.5)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12))':
+  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12)))(svelte@3.59.2)(vite@4.5.3(@types/node@20.14.12))
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5)))(svelte@3.59.2)(vite@4.5.3(@types/node@22.5.5))
       debug: 4.3.5
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.10
       svelte: 3.59.2
       svelte-hmr: 0.15.3(svelte@3.59.2)
-      vite: 4.5.3(@types/node@20.14.12)
-      vitefu: 0.2.5(vite@4.5.3(@types/node@20.14.12))
+      vite: 4.5.3(@types/node@22.5.5)
+      vitefu: 0.2.5(vite@4.5.3(@types/node@22.5.5))
     transitivePeerDependencies:
       - supports-color
 
@@ -2639,25 +2645,25 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
       '@types/responselike': 1.0.3
 
   '@types/fs-extra@9.0.13':
     dependencies:
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
     optional: true
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
     optional: true
 
   '@types/http-cache-semantics@4.0.4': {}
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
 
   '@types/minimatch@5.1.2':
     optional: true
@@ -2666,17 +2672,17 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.14.12':
+  '@types/node@22.5.5':
     dependencies:
-      undici-types: 5.26.5
+      undici-types: 6.19.8
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 22.5.5
     optional: true
 
   '@xmldom/xmldom@0.8.10': {}
@@ -4409,6 +4415,8 @@ snapshots:
 
   undici-types@5.26.5: {}
 
+  undici-types@6.19.8: {}
+
   unique-filename@2.0.1:
     dependencies:
       unique-slug: 3.0.0
@@ -4439,18 +4447,18 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite@4.5.3(@types/node@20.14.12):
+  vite@4.5.3(@types/node@22.5.5):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.40
       rollup: 3.29.4
     optionalDependencies:
-      '@types/node': 20.14.12
+      '@types/node': 22.5.5
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@4.5.3(@types/node@20.14.12)):
+  vitefu@0.2.5(vite@4.5.3(@types/node@22.5.5)):
     optionalDependencies:
-      vite: 4.5.3(@types/node@20.14.12)
+      vite: 4.5.3(@types/node@22.5.5)
 
   wcwidth@1.0.1:
     dependencies:
