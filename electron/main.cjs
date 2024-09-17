@@ -1,5 +1,5 @@
 const { log } = require('console')
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path')
 
 if (require('electron-squirrel-startup')) app.quit();
@@ -39,7 +39,12 @@ const createWindow = () => {
     }
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    ipcMain.handle("saveDB", () => {
+        log(`saving db!`);
+    });
+    createWindow();
+});
 
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
