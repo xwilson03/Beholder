@@ -7,6 +7,9 @@ project(
   LANGUAGES CXX
 )
 
+# Enable generation of compile_commands.json
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Set and require C++ Standard 17
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
