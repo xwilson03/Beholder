@@ -1,11 +1,13 @@
-#include <QApplication>
-#include <QLabel>
+#include <QGuiApplication>
+#include <QQuickView>
 
 int main (int argc, char *argv[]) {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
-    QLabel label("Hello, World!");
-    label.show();
+    QQuickView view;
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.setSource(QUrl("ui/main.qml"));
 
+    view.show();
     return app.exec();
 }
