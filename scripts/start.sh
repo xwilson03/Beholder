@@ -6,4 +6,4 @@ if [[ ! -d build ]]; then
     exit -1
 fi
 
-./build/src/app/beholder
+./build/src/app/Beholder
