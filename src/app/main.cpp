@@ -1,13 +1,17 @@
 #include <QGuiApplication>
-#include <QQuickView>
+#include <QQmlApplicationEngine>
 
 int main (int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
 
-    QQuickView view;
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("src/app/ui/main.qml"));
+    QQmlApplicationEngine engine;
+    const QUrl url(QStringLiteral("src/app/ui/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+    }, Qt::QueuedConnection);
+    engine.load(url);
 
-    view.show();
     return app.exec();
 }
