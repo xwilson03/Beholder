@@ -40,6 +40,68 @@ Window {
         }
     } // NamePlate
 
+    component StatBox: ColumnLayout {
+        property string stat
+
+        Text {
+            ColumnLayout.alignment: Qt.AlignHCenter
+            text: parent.stat
+            color: theme.text.primary
+        }
+
+        Rectangle {
+            width: 50
+            height: 50
+            color: theme.fg.secondary
+            radius: 10
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.IBeamCursor
+            }
+
+            TextInput {
+                anchors.fill: parent
+                padding: parent.radius
+                color: theme.text.primary
+                font.pointSize: 20
+
+                horizontalAlignment: TextInput.AlignHCenter
+                verticalAlignment: TextInput.AlignVCenter
+                validator: IntValidator { bottom: 0; top: 30 }
+
+                text: "0"
+            }
+        }
+
+        Text {
+            ColumnLayout.alignment: Qt.AlignHCenter
+            text: "+1"
+            color: theme.text.primary
+        }
+    } // StatBox
+
+    component StatLine: Rectangle {
+        ColumnLayout.fillWidth: true
+        ColumnLayout.minimumHeight: childrenRect.height + 10
+        color: theme.bg.secondary
+
+        RowLayout {
+            anchors.centerIn: parent
+
+            Item { RowLayout.fillWidth: true }
+
+            StatBox {stat: "STR"} // Strength
+            StatBox {stat: "DEX"} // Dexterity
+            StatBox {stat: "CON"} // Constitution
+            StatBox {stat: "INT"} // Intelligence
+            StatBox {stat: "WIS"} // Wisdom
+            StatBox {stat: "CHA"} // Charisma
+
+            Item { RowLayout.fillWidth: true }
+        }
+    } // StatLine
+
     SplitView {
         anchors.fill: parent
         handle: Rectangle {
@@ -52,11 +114,17 @@ Window {
             SplitView.minimumWidth: 340
             color: theme.fg.secondary
 
+            MouseArea {
+                anchors.fill: parent
+                onClicked: forceActiveFocus()
+            }
+
             ColumnLayout {
                 anchors.fill: parent
                 spacing: theme.fg.thin
 
                 NamePlate {}
+                StatLine {}
 
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true
@@ -65,16 +133,27 @@ Window {
                 } // Filler
             }
         }
+
         Rectangle {
             SplitView.minimumWidth: 100
             SplitView.preferredWidth: 200
             SplitView.fillWidth: true
             color: theme.bg.primary
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: forceActiveFocus()
+            }
         }
         Rectangle {
             SplitView.minimumWidth: 100
             SplitView.preferredWidth: 200
             color: theme.bg.secondary
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: forceActiveFocus()
+            }
         }
     }
 }
