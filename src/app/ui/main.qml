@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Window {
     minimumWidth: 800
@@ -26,6 +27,19 @@ Window {
         }
     }
 
+    component NamePlate: Rectangle {
+        ColumnLayout.fillWidth: true
+        height: 40
+        color: theme.bg.secondary
+
+        Text {
+            anchors.centerIn: parent
+            text: "John Doe, Human Bard 1"
+            font.pointSize: 14
+            color: theme.text.primary
+        }
+    } // NamePlate
+
     SplitView {
         anchors.fill: parent
         handle: Rectangle {
@@ -35,9 +49,21 @@ Window {
         }
 
         Rectangle {
-            SplitView.preferredWidth: 200
             SplitView.minimumWidth: 340
             color: theme.fg.secondary
+
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: theme.fg.thin
+
+                NamePlate {}
+
+                Rectangle { // Filler
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.fillHeight: true
+                    color: theme.bg.secondary
+                } // Filler
+            }
         }
         Rectangle {
             SplitView.minimumWidth: 100
