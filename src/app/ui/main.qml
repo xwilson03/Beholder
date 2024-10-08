@@ -40,6 +40,31 @@ Window {
         }
     } // NamePlate
 
+    component NumberInput: Rectangle {
+        width: 50
+        height: 50
+        color: theme.fg.secondary
+        radius: 10
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.IBeamCursor
+        }
+
+        TextInput {
+            anchors.fill: parent
+            padding: parent.radius
+            color: theme.text.primary
+            font.pointSize: 20
+
+            horizontalAlignment: TextInput.AlignHCenter
+            verticalAlignment: TextInput.AlignVCenter
+            validator: IntValidator { bottom: 0; top: 30 }
+
+            text: "0"
+        }
+    } // NumberInput
+
     component StatBox: ColumnLayout {
         property string stat
 
@@ -49,30 +74,7 @@ Window {
             color: theme.text.primary
         }
 
-        Rectangle {
-            width: 50
-            height: 50
-            color: theme.fg.secondary
-            radius: 10
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.IBeamCursor
-            }
-
-            TextInput {
-                anchors.fill: parent
-                padding: parent.radius
-                color: theme.text.primary
-                font.pointSize: 20
-
-                horizontalAlignment: TextInput.AlignHCenter
-                verticalAlignment: TextInput.AlignVCenter
-                validator: IntValidator { bottom: 0; top: 30 }
-
-                text: "0"
-            }
-        }
+        NumberInput{}
 
         Text {
             ColumnLayout.alignment: Qt.AlignHCenter
