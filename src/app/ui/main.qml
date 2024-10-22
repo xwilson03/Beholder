@@ -189,6 +189,12 @@ Window {
         }
     }
 
+    component EquipmentPanel: Rectangle {
+        ColumnLayout.fillWidth: true
+        ColumnLayout.minimumHeight: childrenRect.height + 10
+        color: theme.bg.secondary
+    }
+
     SplitView {
         anchors.fill: parent
         handle: Rectangle {
@@ -233,14 +239,27 @@ Window {
                 onClicked: forceActiveFocus()
             }
         }
+
         Rectangle {
             SplitView.minimumWidth: 100
-            SplitView.preferredWidth: 200
             color: theme.bg.secondary
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: forceActiveFocus()
+            }
+
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: theme.fg.thin
+
+                EquipmentPanel {}
+
+                Rectangle { // Filler
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.fillHeight: true
+                    color: theme.bg.secondary
+                } // Filler
             }
         }
     }
