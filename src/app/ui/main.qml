@@ -10,8 +10,8 @@ Window {
     property Item theme: Item {
 
         property Item bg: Item {
-            property color primary: "#202020"
-            property color secondary: "#2a2a2a"
+            property color primary: "#191918"
+            property color secondary: "#2c2c2a"
             property color accent: "#303030"
         }
 
@@ -85,7 +85,7 @@ Window {
 
     component StatLine: Rectangle {
         ColumnLayout.fillWidth: true
-        ColumnLayout.minimumHeight: childrenRect.height + 10
+        ColumnLayout.minimumHeight: childrenRect.height + 25
         color: theme.bg.secondary
 
         RowLayout {
@@ -106,7 +106,7 @@ Window {
 
     component CombatPanel: Rectangle {
         ColumnLayout.fillWidth: true
-        ColumnLayout.minimumHeight: childrenRect.height + 10
+        ColumnLayout.minimumHeight: childrenRect.height + 25
         color: theme.bg.secondary
 
         ColumnLayout {
