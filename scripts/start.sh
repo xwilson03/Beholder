@@ -1,9 +1,14 @@
 #!/bin/bash
+set -e
 
-cd ~/Beholder-Qt
-if [[ ! -d build ]]; then
-    echo "ERROR: Missing build directory."
+SCRIPT_DIR=$(dirname $(realpath $0))
+REPO_DIR=$(dirname $SCRIPT_DIR)
+
+INSTALL_DIR=$REPO_DIR/install
+
+if [[ ! -d $INSTALL_DIR ]]; then
+    echo "ERROR: Missing install directory."
     exit -1
 fi
 
-./build/src/app/Beholder
+$INSTALL_DIR/bin/beholder
