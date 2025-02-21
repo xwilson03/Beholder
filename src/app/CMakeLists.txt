@@ -1,12 +1,20 @@
+find_package(Qt6 COMPONENTS Quick REQUIRED)
+
 # Add primary application executable
-qt_add_executable(${PROJECT_NAME}
+add_executable(beholder
   main.cpp
-  qml.qrc
 )
-target_link_libraries(${PROJECT_NAME}
-  PRIVATE Qt6::Quick Qt6::Gui
+target_link_libraries(beholder
+  PRIVATE
+    Qt6::Quick
+    qrc
 )
-set_target_properties(${PROJECT_NAME} PROPERTIES
+set_target_properties(beholder PROPERTIES
   WIN32_EXECUTABLE ON
   MACOSX_BUNDLE ON
+)
+
+install(
+  TARGETS beholder
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
