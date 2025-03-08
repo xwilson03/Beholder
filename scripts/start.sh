@@ -11,4 +11,4 @@ if [[ ! -d $INSTALL_DIR ]]; then
     exit -1
 fi
 
-$INSTALL_DIR/bin/beholder
+$INSTALL_DIR/bin/Beholder
