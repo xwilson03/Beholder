@@ -29,12 +29,6 @@ Window {
         }
     }
 
-    component EquipmentPanel: Rectangle {
-        ColumnLayout.fillWidth: true
-        ColumnLayout.minimumHeight: childrenRect.height + 10
-        color: theme.bg.secondary
-    }
-
     SplitView {
         anchors.fill: parent
         handle: Rectangle {
@@ -108,7 +102,11 @@ Window {
                 anchors.fill: parent
                 spacing: theme.fg.thin
 
-                EquipmentPanel {}
+                EquipmentPanel {
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.minimumHeight: childrenRect.height + 10
+                    color: theme.bg.secondary
+                }
 
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true

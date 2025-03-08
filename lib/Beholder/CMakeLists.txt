@@ -8,6 +8,7 @@ install(
     StatBox.qml
     StatLine.qml
     CombatPanel.qml
+    EquipmentPanel.qml
   DESTINATION
     ${CMAKE_INSTALL_QMLDIR}/Beholder
 )
