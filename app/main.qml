@@ -29,45 +29,6 @@ Window {
         }
     }
 
-    component StatLine: Rectangle {
-        ColumnLayout.fillWidth: true
-        ColumnLayout.minimumHeight: childrenRect.height + 25
-        color: theme.bg.secondary
-
-        RowLayout {
-            anchors.centerIn: parent
-
-            Item { RowLayout.fillWidth: true }
-
-            StatBox {
-                stat: "STR"
-                text: theme.text.primary
-            }
-            StatBox {
-                stat: "DEX"
-                text: theme.text.primary
-            }
-            StatBox {
-                stat: "CON"
-                text: theme.text.primary
-            }
-            StatBox {
-                stat: "INT"
-                text: theme.text.primary
-            }
-            StatBox {
-                stat: "WIS"
-                text: theme.text.primary
-            }
-            StatBox {
-                stat: "CHA"
-                text: theme.text.primary
-            }
-
-            Item { RowLayout.fillWidth: true }
-        }
-    } // StatLine
-
     component CombatPanel: Rectangle {
         ColumnLayout.fillWidth: true
         ColumnLayout.minimumHeight: childrenRect.height + 25
@@ -207,7 +168,8 @@ Window {
                 }
 
                 StatLine {
-
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.minimumHeight: childrenRect.height + 25
                 }
                 CombatPanel {}
 
