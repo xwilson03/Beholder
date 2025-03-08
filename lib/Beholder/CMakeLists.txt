@@ -7,6 +7,7 @@ install(
     NumberInput.qml
     StatBox.qml
     StatLine.qml
+    CombatPanel.qml
   DESTINATION
     ${CMAKE_INSTALL_QMLDIR}/Beholder
 )

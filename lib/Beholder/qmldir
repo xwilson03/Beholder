@@ -3,3 +3,4 @@ NamePlate 1.0 NamePlate.qml
 NumberInput 1.0 NumberInput.qml
 StatBox 1.0 StatBox.qml
 StatLine 1.0 StatLine.qml
+CombatPanel 1.0 CombatPanel.qml
