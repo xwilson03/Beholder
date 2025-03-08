@@ -1,3 +1,4 @@
 module Beholder
 NamePlate 1.0 NamePlate.qml
 NumberInput 1.0 NumberInput.qml
+StatBox 1.0 StatBox.qml

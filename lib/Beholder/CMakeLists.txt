@@ -5,6 +5,7 @@ install(
     qmldir
     NamePlate.qml
     NumberInput.qml
+    StatBox.qml
   DESTINATION
     ${CMAKE_INSTALL_QMLDIR}/Beholder
 )

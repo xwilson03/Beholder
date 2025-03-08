@@ -29,27 +29,6 @@ Window {
         }
     }
 
-    component StatBox: ColumnLayout {
-        property string stat
-
-        Text {
-            ColumnLayout.alignment: Qt.AlignHCenter
-            text: parent.stat
-            color: theme.text.primary
-        }
-
-        NumberInput{
-            background: theme.fg.secondary
-            text: theme.text.primary
-        }
-
-        Text {
-            ColumnLayout.alignment: Qt.AlignHCenter
-            text: "+1"
-            color: theme.text.primary
-        }
-    } // StatBox
-
     component StatLine: Rectangle {
         ColumnLayout.fillWidth: true
         ColumnLayout.minimumHeight: childrenRect.height + 25
@@ -60,12 +39,30 @@ Window {
 
             Item { RowLayout.fillWidth: true }
 
-            StatBox {stat: "STR"} // Strength
-            StatBox {stat: "DEX"} // Dexterity
-            StatBox {stat: "CON"} // Constitution
-            StatBox {stat: "INT"} // Intelligence
-            StatBox {stat: "WIS"} // Wisdom
-            StatBox {stat: "CHA"} // Charisma
+            StatBox {
+                stat: "STR"
+                text: theme.text.primary
+            }
+            StatBox {
+                stat: "DEX"
+                text: theme.text.primary
+            }
+            StatBox {
+                stat: "CON"
+                text: theme.text.primary
+            }
+            StatBox {
+                stat: "INT"
+                text: theme.text.primary
+            }
+            StatBox {
+                stat: "WIS"
+                text: theme.text.primary
+            }
+            StatBox {
+                stat: "CHA"
+                text: theme.text.primary
+            }
 
             Item { RowLayout.fillWidth: true }
         }
