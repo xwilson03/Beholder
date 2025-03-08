@@ -19,5 +19,8 @@ set(CMAKE_AUTOUIC ON)
 # Enable compile commands generation
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+set(CMAKE_INSTALL_QMLDIR ${CMAKE_INSTALL_PREFIX}/qml)
+add_compile_definitions(QML_DIR="${CMAKE_INSTALL_QMLDIR}")
+
 # Add subdirectories
 add_subdirectory(src)
