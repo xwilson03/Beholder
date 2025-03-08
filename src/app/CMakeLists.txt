@@ -1,5 +1,9 @@
 find_package(Qt6 COMPONENTS Quick REQUIRED)
 
+add_library(qrc
+  qml.qrc
+)
+
 # Add primary application executable
 add_executable(beholder
   main.cpp
