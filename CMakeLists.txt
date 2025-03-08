@@ -11,11 +11,6 @@ project(
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Enable Qt meta-compilers
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
 # Enable compile commands generation
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
