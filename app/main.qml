@@ -60,6 +60,7 @@ Window {
                     ColumnLayout.fillWidth: true
                     ColumnLayout.minimumHeight: childrenRect.height + 25
                     background: theme.bg.secondary
+                    foreground: theme.fg.secondary
                     text: theme.text.primary
                 }
 

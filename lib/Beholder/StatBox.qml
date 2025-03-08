@@ -5,6 +5,7 @@ ColumnLayout {
     id: root
     property string stat
     property color text
+    property color foreground
 
     Text {
         ColumnLayout.alignment: Qt.AlignHCenter
@@ -13,7 +14,7 @@ ColumnLayout {
     }
 
     NumberInput{
-        background: theme.fg.secondary
+        background: root.foreground
         text: root.text
     }
 
