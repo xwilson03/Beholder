@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-    color: theme.bg.secondary
+    id: root
+    property alias background: root.color
+    property color text
 
     RowLayout {
         anchors.centerIn: parent
@@ -11,27 +13,27 @@ Rectangle {
 
         StatBox {
             stat: "STR"
-            text: theme.text.primary
+            text: root.text
         }
         StatBox {
             stat: "DEX"
-            text: theme.text.primary
+            text: root.text
         }
         StatBox {
             stat: "CON"
-            text: theme.text.primary
+            text: root.text
         }
         StatBox {
             stat: "INT"
-            text: theme.text.primary
+            text: root.text
         }
         StatBox {
             stat: "WIS"
-            text: theme.text.primary
+            text: root.text
         }
         StatBox {
             stat: "CHA"
-            text: theme.text.primary
+            text: root.text
         }
 
         Item { RowLayout.fillWidth: true }

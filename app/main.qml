@@ -65,8 +65,15 @@ Window {
                 StatLine {
                     ColumnLayout.fillWidth: true
                     ColumnLayout.minimumHeight: childrenRect.height + 25
+                    background: theme.bg.secondary
+                    text: theme.text.primary
                 }
-                CombatPanel {}
+
+                CombatPanel {
+                    background: theme.bg.secondary
+                    foreground: theme.fg.secondary
+                    text: theme.text.primary
+                }
 
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true
