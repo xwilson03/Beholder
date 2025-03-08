@@ -18,4 +18,5 @@ set(CMAKE_INSTALL_QMLDIR ${CMAKE_INSTALL_PREFIX}/qml)
 add_compile_definitions(QML_DIR="${CMAKE_INSTALL_QMLDIR}")
 
 # Add subdirectories
+add_subdirectory(lib)
 add_subdirectory(app)

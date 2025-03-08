@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import Beholder 1.0
+
 Window {
     minimumWidth: 800
     minimumHeight: 600
@@ -26,19 +28,6 @@ Window {
             property color primary: "#ffffff"
         }
     }
-
-    component NamePlate: Rectangle {
-        ColumnLayout.fillWidth: true
-        height: 40
-        color: theme.bg.secondary
-
-        Text {
-            anchors.centerIn: parent
-            text: "John Doe, Human Bard 1"
-            font.pointSize: 14
-            color: theme.text.primary
-        }
-    } // NamePlate
 
     component NumberInput: Rectangle {
         width: 50
@@ -114,7 +103,7 @@ Window {
             RowLayout {
                 spacing: 20
                 Item { RowLayout.fillWidth: true }
-                
+
                 ColumnLayout {
                     Text {
                         ColumnLayout.alignment: Qt.AlignHCenter
@@ -127,7 +116,7 @@ Window {
                         height: 50
                     }
                 }
-                
+
                 ColumnLayout {
                     Text {
                         ColumnLayout.alignment: Qt.AlignHCenter
@@ -216,7 +205,12 @@ Window {
                 anchors.fill: parent
                 spacing: theme.fg.thin
 
-                NamePlate {}
+                NamePlate {
+                    ColumnLayout.fillWidth: true
+                    primary: theme.bg.secondary
+                    text: theme.text.primary
+                }
+
                 StatLine {}
                 CombatPanel {}
 
