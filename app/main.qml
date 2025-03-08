@@ -29,31 +29,6 @@ Window {
         }
     }
 
-    component NumberInput: Rectangle {
-        width: 50
-        height: 50
-        color: theme.fg.secondary
-        radius: 10
-
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.IBeamCursor
-        }
-
-        TextInput {
-            anchors.fill: parent
-            padding: parent.radius
-            color: theme.text.primary
-            font.pointSize: 20
-
-            horizontalAlignment: TextInput.AlignHCenter
-            verticalAlignment: TextInput.AlignVCenter
-            validator: IntValidator { bottom: 0; top: 30 }
-
-            text: "0"
-        }
-    } // NumberInput
-
     component StatBox: ColumnLayout {
         property string stat
 
@@ -63,7 +38,10 @@ Window {
             color: theme.text.primary
         }
 
-        NumberInput{}
+        NumberInput{
+            background: theme.fg.secondary
+            text: theme.text.primary
+        }
 
         Text {
             ColumnLayout.alignment: Qt.AlignHCenter
@@ -114,6 +92,8 @@ Window {
                         ColumnLayout.alignment: Qt.AlignHCenter
                         width: 100
                         height: 50
+                        background: theme.fg.secondary
+                        text: theme.text.primary
                     }
                 }
 
@@ -127,6 +107,8 @@ Window {
                         ColumnLayout.alignment: Qt.AlignHCenter
                         width: 100
                         height: 50
+                        background: theme.fg.secondary
+                        text: theme.text.primary
                     }
                 }
                 Item { RowLayout.fillWidth: true }
@@ -143,7 +125,11 @@ Window {
                         color: theme.text.primary
                         text: "Max HP"
                     }
-                    NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
+                    NumberInput {
+                        ColumnLayout.alignment: Qt.AlignHCenter
+                        background: theme.fg.secondary
+                        text: theme.text.primary
+                    }
                 }
 
                 ColumnLayout {
@@ -152,7 +138,11 @@ Window {
                         color: theme.text.primary
                         text: "Armor"
                     }
-                    NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
+                    NumberInput {
+                        ColumnLayout.alignment: Qt.AlignHCenter
+                        background: theme.fg.secondary
+                        text: theme.text.primary
+                    }
                 }
 
                 ColumnLayout {
@@ -161,7 +151,11 @@ Window {
                         color: theme.text.primary
                         text: "Initiative"
                     }
-                    NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
+                    NumberInput {
+                        ColumnLayout.alignment: Qt.AlignHCenter
+                        background: theme.fg.secondary
+                        text: theme.text.primary
+                    }
                 }
 
                 ColumnLayout {
@@ -170,7 +164,11 @@ Window {
                         color: theme.text.primary
                         text: "Speed"
                     }
-                    NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
+                    NumberInput {
+                        ColumnLayout.alignment: Qt.AlignHCenter
+                        background: theme.fg.secondary
+                        text: theme.text.primary
+                    }
                 }
 
                 Item { RowLayout.fillWidth: true }
@@ -211,7 +209,9 @@ Window {
                     text: theme.text.primary
                 }
 
-                StatLine {}
+                StatLine {
+
+                }
                 CombatPanel {}
 
                 Rectangle { // Filler
