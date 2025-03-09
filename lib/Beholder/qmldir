@@ -5,3 +5,4 @@ StatBox 1.0 StatBox.qml
 StatLine 1.0 StatLine.qml
 CombatPanel 1.0 CombatPanel.qml
 EquipmentPanel 1.0 EquipmentPanel.qml
+Theme 1.0 Theme.qml
