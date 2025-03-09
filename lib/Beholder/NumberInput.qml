@@ -6,8 +6,7 @@ Rectangle {
     height: 50
     radius: 10
 
-    property alias background: root.color
-    property alias text: input.color
+    color: Theme.fg.secondary
 
     MouseArea {
         anchors.fill: parent
@@ -25,5 +24,6 @@ Rectangle {
         validator: IntValidator { bottom: 0; top: 30 }
 
         text: "0"
+        color: Theme.text.primary
     }
 }

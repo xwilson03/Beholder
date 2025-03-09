@@ -4,23 +4,18 @@ import QtQuick.Layouts
 ColumnLayout {
     id: root
     property string stat
-    property color text
-    property color foreground
 
     Text {
         ColumnLayout.alignment: Qt.AlignHCenter
         text: parent.stat
-        color: root.text
+        color: Theme.text.primary
     }
 
-    NumberInput{
-        background: root.foreground
-        text: root.text
-    }
+    NumberInput {}
 
     Text {
         ColumnLayout.alignment: Qt.AlignHCenter
         text: "+1"
-        color: root.text
+        color: Theme.text.primary
     }
 }

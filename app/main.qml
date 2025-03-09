@@ -30,25 +30,14 @@ Window {
                 anchors.fill: parent
                 spacing: Theme.fg.thin
 
-                NamePlate {
-                    ColumnLayout.fillWidth: true
-                    primary: Theme.bg.secondary
-                    text: Theme.text.primary
-                }
+                NamePlate { ColumnLayout.fillWidth: true }
 
                 StatLine {
                     ColumnLayout.fillWidth: true
                     ColumnLayout.minimumHeight: childrenRect.height + 25
-                    background: Theme.bg.secondary
-                    foreground: Theme.fg.secondary
-                    text: Theme.text.primary
                 }
 
-                CombatPanel {
-                    background: Theme.bg.secondary
-                    foreground: Theme.fg.secondary
-                    text: Theme.text.primary
-                }
+                CombatPanel {}
 
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true
@@ -86,7 +75,6 @@ Window {
                 EquipmentPanel {
                     ColumnLayout.fillWidth: true
                     ColumnLayout.minimumHeight: childrenRect.height + 10
-                    color: Theme.bg.secondary
                 }
 
                 Rectangle { // Filler

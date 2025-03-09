@@ -6,45 +6,42 @@ Rectangle {
     ColumnLayout.fillWidth: true
     ColumnLayout.minimumHeight: childrenRect.height + 25
 
-    property alias background: root.color
-    property color foreground
-    property color text
+    color: Theme.bg.secondary
 
     ColumnLayout {
         anchors.centerIn: parent
+
         RowLayout {
             spacing: 20
+
             Item { RowLayout.fillWidth: true }
 
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "HP"
                 }
                 NumberInput {
                     ColumnLayout.alignment: Qt.AlignHCenter
                     width: 100
                     height: 50
-                    background: root.foreground
-                    text: root.text
                 }
             }
 
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "Temporary HP"
                 }
                 NumberInput {
                     ColumnLayout.alignment: Qt.AlignHCenter
                     width: 100
                     height: 50
-                    background: root.foreground
-                    text: root.text
                 }
             }
+
             Item { RowLayout.fillWidth: true }
         }
 
@@ -56,53 +53,37 @@ Rectangle {
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "Max HP"
                 }
-                NumberInput {
-                    ColumnLayout.alignment: Qt.AlignHCenter
-                    background: root.foreground
-                    text: root.text
-                }
+                NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
             }
 
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "Armor"
                 }
-                NumberInput {
-                    ColumnLayout.alignment: Qt.AlignHCenter
-                    background: root.foreground
-                    text: root.text
-                }
+                NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
             }
 
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "Initiative"
                 }
-                NumberInput {
-                    ColumnLayout.alignment: Qt.AlignHCenter
-                    background: root.foreground
-                    text: root.text
-                }
+                NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
             }
 
             ColumnLayout {
                 Text {
                     ColumnLayout.alignment: Qt.AlignHCenter
-                    color: root.text
+                    color: Theme.text.primary
                     text: "Speed"
                 }
-                NumberInput {
-                    ColumnLayout.alignment: Qt.AlignHCenter
-                    background: root.foreground
-                    text: root.text
-                }
+                NumberInput { ColumnLayout.alignment: Qt.AlignHCenter }
             }
 
             Item { RowLayout.fillWidth: true }
