@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
@@ -8,12 +10,11 @@ int main (int argc, char *argv[]) {
     QQmlApplicationEngine engine;
     engine.addImportPath(QML_DIR);
     const QUrl url(QStringLiteral(QML_DIR "/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
     engine.load(url);
+
+    if (engine.rootObjects().size() == 0) {
+        exit(EXIT_FAILURE);
+    }
 
     return app.exec();
 }
