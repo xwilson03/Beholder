@@ -18,7 +18,7 @@ Window {
         }
 
         Rectangle {
-            SplitView.minimumWidth: 340
+            SplitView.minimumWidth: 250
             color: Theme.fg.secondary
 
             MouseArea {
@@ -31,13 +31,6 @@ Window {
                 spacing: Theme.fg.thin
 
                 NamePlate { ColumnLayout.fillWidth: true }
-
-                StatLine {
-                    ColumnLayout.fillWidth: true
-                    ColumnLayout.minimumHeight: childrenRect.height + 25
-                }
-
-                CombatPanel {}
 
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true
@@ -60,8 +53,8 @@ Window {
         }
 
         Rectangle {
-            SplitView.minimumWidth: 100
-            color: Theme.bg.secondary
+            SplitView.minimumWidth: 340
+            color: Theme.fg.secondary
 
             MouseArea {
                 anchors.fill: parent
@@ -71,6 +64,13 @@ Window {
             ColumnLayout {
                 anchors.fill: parent
                 spacing: Theme.fg.thin
+
+                CombatPanel {}
+
+                StatLine {
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.minimumHeight: childrenRect.height + 25
+                }
 
                 EquipmentPanel {
                     ColumnLayout.fillWidth: true
