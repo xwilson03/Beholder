@@ -5,3 +5,4 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 add_subdirectory(mainwindow)
+add_subdirectory(nameplate)
