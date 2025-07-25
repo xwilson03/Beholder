@@ -6,12 +6,11 @@ set(CMAKE_AUTOUIC ON)
 
 add_executable(Beholder
   main.cpp
-  mainwindow.cpp
-  mainwindow.h
 )
 target_link_libraries(Beholder
   PRIVATE
     Qt6::Widgets
+    main_window
 )
 set_target_properties(Beholder PROPERTIES
   WIN32_EXECUTABLE ON
