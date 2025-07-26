@@ -12,16 +12,13 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    setObjectName("mainWindow");
     setWindowTitle("Beholder");
-    setMinimumSize(400, 300);
 
     QSplitter *centralWidget = new QSplitter(this);
     centralWidget->setObjectName("mainSplitter");
-    centralWidget->setHandleWidth(6);
     setCentralWidget(centralWidget);
 
-
-    const int sidebar_width = 100;
 
     std::string default_name  = "Default Name";
     int         default_level = 0;
@@ -32,11 +29,25 @@ MainWindow::MainWindow(QWidget *parent)
 
         // Main Window
 
+        "#mainWindow {"
+            "color: white;"
+            "min-width: 640px;"
+            "min-height: 480px;"
+        "}"
+
+        "#sidebar {"
+            "min-width: 180px;"
+        "}"
+
         "#mainSplitter::handle {"
             "background-color: lightgray;"
+            "width: 6px;"
+            "height: 6px;"
         "}"
 
         // Name Plate
+
+        "#namePlate {}"
 
         "#characterName {"
             "color: purple;"
@@ -47,6 +58,18 @@ MainWindow::MainWindow(QWidget *parent)
         "}"
 
         // Stat Panel
+
+        "#statPanel {"
+            "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 whitesmoke, stop: 1 gainsboro);"
+            "border: 2px solid gainsboro;"
+            "border-radius: 15px;"
+        "}"
+
+        "#statPanelBoxes {}"
+
+        "#statPanelTitle {"
+            "color: purple;"
+        "}"
 
         "#statBox {"
             "background-color: purple;"
@@ -64,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     QWidget* leftSidebar = new QWidget(this);
-    leftSidebar->setMinimumWidth(sidebar_width);
+    leftSidebar->setObjectName("sidebar");
     QVBoxLayout* leftLayout = new QVBoxLayout(leftSidebar);
     leftSidebar->setLayout(leftLayout);
 
@@ -91,7 +114,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     QWidget *rightSidebar = new QWidget(this);
-    rightSidebar->setMinimumWidth(sidebar_width);
+    rightSidebar->setObjectName("sidebar");
     QVBoxLayout* rightLayout = new QVBoxLayout(rightSidebar);
     rightSidebar->setLayout(rightLayout);
 
@@ -101,4 +124,8 @@ MainWindow::MainWindow(QWidget *parent)
     centralWidget->addWidget(leftSidebar);
     centralWidget->addWidget(centralArea);
     centralWidget->addWidget(rightSidebar);
+
+    centralWidget->setStretchFactor(0,0);
+    centralWidget->setStretchFactor(1,1);
+    centralWidget->setStretchFactor(2,0);
 }

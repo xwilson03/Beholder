@@ -27,7 +27,7 @@ private:
 };
 
 
-class StatPanel : public QWidget
+class StatPanel : public QFrame
 {
     Q_OBJECT
 
@@ -35,6 +35,10 @@ public:
     explicit StatPanel(QWidget *parent = nullptr);
 
 private:
+
+    QLabel* mTitle;
+    QWidget* mStatBoxes;
+
     StatBox* mStr;
     StatBox* mDex;
     StatBox* mCon;

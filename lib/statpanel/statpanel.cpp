@@ -10,24 +10,37 @@
 StatPanel::StatPanel(
     QWidget *parent
 )
-: QWidget(parent)
+: QFrame(parent)
 {
-    QGridLayout* layout = new QGridLayout(this);
+    setObjectName("statPanel");
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
     setLayout(layout);
 
-    mStr = new StatBox("STR", 0, this);
-    mDex = new StatBox("DEX", 0, this);
-    mCon = new StatBox("CON", 0, this);
-    mInt = new StatBox("INT", 0, this);
-    mWis = new StatBox("WIS", 0, this);
-    mCha = new StatBox("CHA", 0, this);
+    mTitle = new QLabel("Ability Scores", this);
+    mTitle->setObjectName("statPanelTitle");
+    layout->addWidget(mTitle);
 
-    layout->addWidget(mStr, 0, 0);
-    layout->addWidget(mDex, 0, 1);
-    layout->addWidget(mCon, 1, 0);
-    layout->addWidget(mInt, 1, 1);
-    layout->addWidget(mWis, 2, 0);
-    layout->addWidget(mCha, 2, 1);
+    mStatBoxes = new QWidget(this);
+    mStatBoxes->setObjectName("statPanelBoxes");
+    layout->addWidget(mStatBoxes);
+
+    QGridLayout* boxLayout = new QGridLayout(mStatBoxes);
+    mStatBoxes->setLayout(boxLayout);
+
+    mStr = new StatBox("STR", 0, mStatBoxes);
+    mDex = new StatBox("DEX", 0, mStatBoxes);
+    mCon = new StatBox("CON", 0, mStatBoxes);
+    mInt = new StatBox("INT", 0, mStatBoxes);
+    mWis = new StatBox("WIS", 0, mStatBoxes);
+    mCha = new StatBox("CHA", 0, mStatBoxes);
+
+    boxLayout->addWidget(mStr, 0, 0);
+    boxLayout->addWidget(mDex, 0, 1);
+    boxLayout->addWidget(mCon, 1, 0);
+    boxLayout->addWidget(mInt, 1, 1);
+    boxLayout->addWidget(mWis, 2, 0);
+    boxLayout->addWidget(mCha, 2, 1);
 }
 
 StatBox::StatBox(
@@ -45,12 +58,12 @@ StatBox::StatBox(
     setLayout(layout);
 
     mStatLabel = new QLabel(mStat.c_str(), this);
-    mStatLabel->setAlignment(Qt::AlignHCenter);
     mStatLabel->setObjectName("statNameLabel");
+    mStatLabel->setAlignment(Qt::AlignHCenter);
 
     mValueLabel = new QLabel(QString::number(mValue), this);
-    mValueLabel->setAlignment(Qt::AlignHCenter);
     mValueLabel->setObjectName("statValueLabel");
+    mValueLabel->setAlignment(Qt::AlignHCenter);
 
     layout->addWidget(mStatLabel);
     layout->addWidget(mValueLabel);
