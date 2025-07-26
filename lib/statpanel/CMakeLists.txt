@@ -10,4 +10,6 @@ target_include_directories(statpanel
 target_link_libraries(statpanel
   PRIVATE
     Qt6::Widgets
+  PUBLIC
+    panel
 )

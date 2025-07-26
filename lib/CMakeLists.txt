@@ -6,4 +6,5 @@ set(CMAKE_AUTOUIC ON)
 
 add_subdirectory(mainwindow)
 add_subdirectory(nameplate)
+add_subdirectory(panel)
 add_subdirectory(statpanel)

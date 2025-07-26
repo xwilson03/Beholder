@@ -57,19 +57,21 @@ MainWindow::MainWindow(QWidget *parent)
             "color: dimgray;"
         "}"
 
-        // Stat Panel
+        // Panel
 
-        "#statPanel {"
+        "#panel {"
             "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 whitesmoke, stop: 1 gainsboro);"
             "border: 2px solid gainsboro;"
             "border-radius: 15px;"
         "}"
 
-        "#statPanelBoxes {}"
-
-        "#statPanelTitle {"
+        "#panelTitle {"
             "color: purple;"
         "}"
+
+        // Stat Panel
+
+        "#statPanelBoxes {}"
 
         "#statBox {"
             "background-color: purple;"

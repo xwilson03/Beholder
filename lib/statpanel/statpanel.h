@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QWidget>
 
+#include "panel.h"
+
 
 class StatBox : public QFrame
 {
@@ -27,7 +29,7 @@ private:
 };
 
 
-class StatPanel : public QFrame
+class StatPanel : public Panel
 {
     Q_OBJECT
 
@@ -36,7 +38,6 @@ public:
 
 private:
 
-    QLabel* mTitle;
     QWidget* mStatBoxes;
 
     StatBox* mStr;

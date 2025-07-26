@@ -1,29 +1,22 @@
+#include <QFrame>
 #include <QLabel>
 #include <QGridLayout>
 #include <QString>
 #include <QVBoxLayout>
 #include <QWidget>
 
+#include "panel.h"
 #include "statpanel.h"
 
 
 StatPanel::StatPanel(
     QWidget *parent
 )
-: QFrame(parent)
+: Panel("Ability Scores", parent)
 {
-    setObjectName("statPanel");
-
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    setLayout(layout);
-
-    mTitle = new QLabel("Ability Scores", this);
-    mTitle->setObjectName("statPanelTitle");
-    layout->addWidget(mTitle);
-
     mStatBoxes = new QWidget(this);
     mStatBoxes->setObjectName("statPanelBoxes");
-    layout->addWidget(mStatBoxes);
+    setContent(mStatBoxes);
 
     QGridLayout* boxLayout = new QGridLayout(mStatBoxes);
     mStatBoxes->setLayout(boxLayout);
@@ -42,6 +35,7 @@ StatPanel::StatPanel(
     boxLayout->addWidget(mWis, 2, 0);
     boxLayout->addWidget(mCha, 2, 1);
 }
+
 
 StatBox::StatBox(
     std::string aStat,
