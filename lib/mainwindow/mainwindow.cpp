@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     setMinimumSize(400, 300);
 
     QSplitter *centralWidget = new QSplitter(this);
+    centralWidget->setObjectName("mainSplitter");
+    centralWidget->setHandleWidth(6);
     setCentralWidget(centralWidget);
 
 
@@ -27,6 +29,12 @@ MainWindow::MainWindow(QWidget *parent)
     std::string default_race  = "Human";
 
     setStyleSheet(
+
+        // Main Window
+
+        "#mainSplitter::handle {"
+            "background-color: lightgray;"
+        "}"
 
         // Name Plate
 
