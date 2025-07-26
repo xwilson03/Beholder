@@ -25,6 +25,7 @@ void Panel::setContent(QWidget* aContent)
 {
     if (mContent != nullptr) {
         layout()->removeWidget(mContent);
+        layout()->deleteLater();
     }
 
     mContent = aContent;
