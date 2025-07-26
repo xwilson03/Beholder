@@ -21,11 +21,11 @@ public:
     );
 
 private:
-    std::string mStat;
-    int         mValue;
+    std::string mStat  = "";
+    int         mValue = 0;
 
-    QLabel* mStatLabel;
-    QLabel* mValueLabel;
+    QLabel* mStatLabel  = nullptr;
+    QLabel* mValueLabel = nullptr;
 };
 
 
@@ -38,14 +38,14 @@ public:
 
 private:
 
-    QWidget* mStatBoxes;
+    QWidget* mStatBoxes = nullptr;
 
-    StatBox* mStr;
-    StatBox* mDex;
-    StatBox* mCon;
-    StatBox* mInt;
-    StatBox* mWis;
-    StatBox* mCha;
+    StatBox* mStr = nullptr;
+    StatBox* mDex = nullptr;
+    StatBox* mCon = nullptr;
+    StatBox* mInt = nullptr;
+    StatBox* mWis = nullptr;
+    StatBox* mCha = nullptr;
 };
 
 

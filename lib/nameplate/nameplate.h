@@ -19,13 +19,13 @@ public:
     );
 
 private:
-    std::string mName;
-    int         mLevel;
-    std::string mClass;
-    std::string mRace;
+    std::string mName  = "";
+    int         mLevel = 0;
+    std::string mClass = "";
+    std::string mRace  = "";
 
-    QLabel* mNameLabel;
-    QLabel* mSplashLabel;
+    QLabel* mNameLabel   = nullptr;
+    QLabel* mSplashLabel = nullptr;
 };
 
 #endif // NAMEPLATE_H

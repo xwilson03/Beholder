@@ -21,8 +21,8 @@ public:
 
 private:
 
-    QLabel* mTitleLabel;
-    QWidget* mContent;
+    QLabel* mTitleLabel = nullptr;
+    QWidget* mContent   = nullptr;
 };
 
 
