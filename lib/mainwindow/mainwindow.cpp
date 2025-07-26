@@ -6,6 +6,7 @@
 
 #include "mainwindow.h"
 #include "nameplate.h"
+#include "statpanel.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -38,6 +39,12 @@ MainWindow::MainWindow(QWidget *parent)
             default_level,
             default_class,
             default_race,
+            leftSidebar
+        )
+    );
+
+    leftLayout->addWidget(
+        new StatPanel(
             leftSidebar
         )
     );

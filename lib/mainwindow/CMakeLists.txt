@@ -11,4 +11,5 @@ target_link_libraries(main_window
   PRIVATE
     Qt6::Widgets
     nameplate
+    statpanel
 )
