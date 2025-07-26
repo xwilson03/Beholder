@@ -26,6 +26,33 @@ MainWindow::MainWindow(QWidget *parent)
     std::string default_class = "Fighter";
     std::string default_race  = "Human";
 
+    setStyleSheet(
+
+        // Name Plate
+
+        "#characterName {"
+            "color: purple;"
+        "}"
+
+        "#characterSplash {"
+            "color: dimgray;"
+        "}"
+
+        // Stat Panel
+
+        "#statBox {"
+            "background-color: purple;"
+            "border-radius: 15px;"
+        "}"
+
+        "#statNameLabel {"
+            "color: white;"
+        "}"
+
+        "#statValueLabel {"
+            "color: white;"
+        "}"
+    );
 
 
     QWidget* leftSidebar = new QWidget(this);

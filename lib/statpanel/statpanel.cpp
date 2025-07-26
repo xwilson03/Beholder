@@ -39,23 +39,18 @@ StatBox::StatBox(
 , mStat(aStat)
 , mValue(aValue)
 {
-
-    setStyleSheet(
-        "QFrame {"
-        "    color: white;"
-        "    background-color: purple;"
-        "    border-radius: 15px;"
-        "}"
-    );
+    setObjectName("statBox");
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     setLayout(layout);
 
     mStatLabel = new QLabel(mStat.c_str(), this);
     mStatLabel->setAlignment(Qt::AlignHCenter);
+    mStatLabel->setObjectName("statNameLabel");
 
     mValueLabel = new QLabel(QString::number(mValue), this);
     mValueLabel->setAlignment(Qt::AlignHCenter);
+    mValueLabel->setObjectName("statValueLabel");
 
     layout->addWidget(mStatLabel);
     layout->addWidget(mValueLabel);
