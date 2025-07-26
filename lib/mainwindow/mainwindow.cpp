@@ -85,6 +85,11 @@ MainWindow::MainWindow(QWidget *parent)
         "#statValueLabel {"
             "color: white;"
         "}"
+
+        "#statModLabel {"
+            "color: white;"
+        "}"
+
     );
 
 

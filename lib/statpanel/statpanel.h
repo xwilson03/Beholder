@@ -21,11 +21,15 @@ public:
     );
 
 private:
+
+    int computeMod(int aValue);
+
     std::string mStat  = "";
     int         mValue = 0;
 
     QLabel* mStatLabel  = nullptr;
     QLabel* mValueLabel = nullptr;
+    QLabel* mModLabel = nullptr;
 };
 
 

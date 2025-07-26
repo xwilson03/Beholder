@@ -59,6 +59,16 @@ StatBox::StatBox(
     mValueLabel->setObjectName("statValueLabel");
     mValueLabel->setAlignment(Qt::AlignHCenter);
 
+    mModLabel = new QLabel(QString::number(computeMod(mValue)), this);
+    mModLabel->setObjectName("statModLabel");
+    mModLabel->setAlignment(Qt::AlignHCenter);
+
     layout->addWidget(mStatLabel);
     layout->addWidget(mValueLabel);
+    layout->addWidget(mModLabel);
+}
+
+int StatBox::computeMod(int aValue)
+{
+    return (aValue - 10) / 2;
 }
