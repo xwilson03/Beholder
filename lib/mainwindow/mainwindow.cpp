@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include "nameplate.h"
 #include "statpanel.h"
+#include "combatpanel.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -69,6 +70,16 @@ MainWindow::MainWindow(QWidget *parent)
             "color: purple;"
         "}"
 
+        // Badge
+
+        "#badge {"
+            "background-color: whitesmoke;"
+            "border: 2px solid gainsboro;"
+            "border-radius: 10px;"
+        "}"
+
+        "#badgeText {}"
+
         // Stat Panel
 
         "#statPanelBoxes {}"
@@ -95,6 +106,22 @@ MainWindow::MainWindow(QWidget *parent)
             "font-size: 14px;"
         "}"
 
+        // Combat Panel
+
+        "combatPanelContent {}"
+
+        "HPLabel {}"
+
+        "tempHPLabel {}"
+
+        "separator {}"
+
+        "armorClassLabel {}"
+
+        "initiativeLabel {}"
+
+        "speedLabel {}"
+
     );
 
 
@@ -115,6 +142,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     leftLayout->addWidget(
         new StatPanel(
+            leftSidebar
+        )
+    );
+
+    leftLayout->addWidget(
+        new CombatPanel(
             leftSidebar
         )
     );
