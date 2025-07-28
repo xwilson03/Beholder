@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
         // Main Window
 
         "#mainWindow {"
-            "color: white;"
+            "background-color: white;"
             "min-width: 640px;"
             "min-height: 480px;"
         "}"
@@ -78,7 +78,9 @@ MainWindow::MainWindow(QWidget *parent)
             "border-radius: 10px;"
         "}"
 
-        "#badgeText {}"
+        "#badgeText {"
+            "color: black;"
+        "}"
 
         // Stat Panel
 
@@ -110,17 +112,29 @@ MainWindow::MainWindow(QWidget *parent)
 
         "combatPanelContent {}"
 
-        "HPLabel {}"
+        "#HPLabel {"
+            "color: black;"
+        "}"
 
-        "tempHPLabel {}"
+        "#tempHPLabel {"
+            "color: black;"
+        "}"
 
-        "separator {}"
+        "#separator {"
+            "color: grey;"
+        "}"
 
-        "armorClassLabel {}"
+        "#armorClassLabel {"
+            "color: black;"
+        "}"
 
-        "initiativeLabel {}"
+        "#initiativeLabel {"
+            "color: black;"
+        "}"
 
-        "speedLabel {}"
+        "#speedLabel {"
+            "color: black;"
+        "}"
 
     );
 
