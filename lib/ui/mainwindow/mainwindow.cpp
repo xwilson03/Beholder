@@ -7,11 +7,16 @@
 #include "mainwindow.h"
 #include "nameplate.h"
 #include "statpanel.h"
+#include "store.h"
 #include "combatpanel.h"
 
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(
+    Store& aStore,
+    QWidget *parent
+)
+: QMainWindow(parent)
+, mStore(aStore)
 {
     setObjectName("mainWindow");
     setWindowTitle("Beholder");
@@ -21,10 +26,18 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(centralWidget);
 
 
-    std::string default_name  = "Default Name";
-    int         default_level = 0;
-    std::string default_class = "Fighter";
-    std::string default_race  = "Human";
+    std::string name;
+    int         level;
+    std::string characterClass;
+    std::string race;
+
+    {
+        Store::Accessor state = mStore.getState();
+        name = state->name;
+        level = state->level;
+        characterClass = state->characterClass;
+        race = state->race;
+    }
 
     setStyleSheet(
 
@@ -146,10 +159,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     leftLayout->addWidget(
         new NamePlate(
-            default_name,
-            default_level,
-            default_class,
-            default_race,
+            name,
+            level,
+            characterClass,
+            race,
             leftSidebar
         )
     );

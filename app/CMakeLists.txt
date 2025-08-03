@@ -11,6 +11,7 @@ target_link_libraries(Beholder
   PRIVATE
     Qt6::Widgets
     main_window
+    store
 )
 set_target_properties(Beholder PROPERTIES
   WIN32_EXECUTABLE ON
