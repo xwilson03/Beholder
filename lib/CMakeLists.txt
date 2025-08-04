@@ -1,2 +1,2 @@
-add_subdirectory(backend)
-add_subdirectory(ui)
+add_subdirectory(model)
+add_subdirectory(view)
