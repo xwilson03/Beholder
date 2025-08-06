@@ -10,8 +10,7 @@ target_include_directories(main_window
 target_link_libraries(main_window
   PRIVATE
     Qt6::Widgets
+    combatpanel
     nameplate
     statpanel
-    store
-    combatpanel
 )

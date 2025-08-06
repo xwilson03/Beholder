@@ -7,37 +7,22 @@
 #include "mainwindow.h"
 #include "nameplate.h"
 #include "statpanel.h"
-#include "store.h"
 #include "combatpanel.h"
 
 
 MainWindow::MainWindow(
-    Store& aStore,
+    NamePlate* aNamePlate,
+    StatPanel* aStatPanel,
+    CombatPanel* aCombatPanel,
     QWidget *parent
 )
 : QMainWindow(parent)
-, mStore(aStore)
+, mNamePlate(aNamePlate)
+, mStatPanel(aStatPanel)
+, mCombatPanel(aCombatPanel)
 {
     setObjectName("mainWindow");
     setWindowTitle("Beholder");
-
-    QSplitter *centralWidget = new QSplitter(this);
-    centralWidget->setObjectName("mainSplitter");
-    setCentralWidget(centralWidget);
-
-
-    std::string name;
-    int         level;
-    std::string characterClass;
-    std::string race;
-
-    {
-        Store::Accessor state = mStore.getState();
-        name = state->name;
-        level = state->level;
-        characterClass = state->characterClass;
-        race = state->race;
-    }
 
     setStyleSheet(
 
@@ -152,52 +137,39 @@ MainWindow::MainWindow(
     );
 
 
-    QWidget* leftSidebar = new QWidget(this);
+    QSplitter* splitter = new QSplitter();
+    splitter->setObjectName("mainSplitter");
+    setCentralWidget(splitter);
+
+
+    QWidget* leftSidebar = new QWidget();
     leftSidebar->setObjectName("sidebar");
-    QVBoxLayout* leftLayout = new QVBoxLayout(leftSidebar);
+    QVBoxLayout* leftLayout = new QVBoxLayout();
     leftSidebar->setLayout(leftLayout);
 
-    leftLayout->addWidget(
-        new NamePlate(
-            name,
-            level,
-            characterClass,
-            race,
-            leftSidebar
-        )
-    );
-
-    leftLayout->addWidget(
-        new StatPanel(
-            leftSidebar
-        )
-    );
-
-    leftLayout->addWidget(
-        new CombatPanel(
-            leftSidebar
-        )
-    );
+    leftLayout->addWidget(mNamePlate);
+    leftLayout->addWidget(mStatPanel);
+    leftLayout->addWidget(mCombatPanel);
 
     leftLayout->addStretch(1);
 
 
-    QWidget *centralArea = new QWidget(this);
+    QWidget *centralArea = new QWidget();
 
 
-    QWidget *rightSidebar = new QWidget(this);
+    QWidget *rightSidebar = new QWidget();
     rightSidebar->setObjectName("sidebar");
-    QVBoxLayout* rightLayout = new QVBoxLayout(rightSidebar);
+    QVBoxLayout* rightLayout = new QVBoxLayout();
     rightSidebar->setLayout(rightLayout);
 
     rightLayout->addStretch(1);
 
 
-    centralWidget->addWidget(leftSidebar);
-    centralWidget->addWidget(centralArea);
-    centralWidget->addWidget(rightSidebar);
+    splitter->addWidget(leftSidebar);
+    splitter->addWidget(centralArea);
+    splitter->addWidget(rightSidebar);
 
-    centralWidget->setStretchFactor(0,0);
-    centralWidget->setStretchFactor(1,1);
-    centralWidget->setStretchFactor(2,0);
+    splitter->setStretchFactor(0,0);
+    splitter->setStretchFactor(1,1);
+    splitter->setStretchFactor(2,0);
 }

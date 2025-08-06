@@ -3,8 +3,11 @@
 
 #include <QMainWindow>
 #include <QObject>
+#include <QWidget>
 
-#include "store.h"
+#include "combatpanel.h"
+#include "nameplate.h"
+#include "statpanel.h"
 
 
 class MainWindow : public QMainWindow
@@ -13,12 +16,16 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(
-        Store& aStore,
-        QWidget *parent = nullptr
+        NamePlate*   aNamePlate,
+        StatPanel*   aStatPanel,
+        CombatPanel* aCombatPanel,
+        QWidget* parent = nullptr
     );
 
 private:
-    Store& mStore;
+    NamePlate*   mNamePlate;
+    StatPanel*   mStatPanel;
+    CombatPanel* mCombatPanel;
 };
 
 #endif // MAINWINDOW_H

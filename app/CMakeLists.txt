@@ -10,7 +10,10 @@ add_executable(Beholder
 target_link_libraries(Beholder
   PRIVATE
     Qt6::Widgets
+    combatpanel
     main_window
+    nameplate
+    statpanel
     store
 )
 set_target_properties(Beholder PROPERTIES
