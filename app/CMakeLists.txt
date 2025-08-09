@@ -13,6 +13,7 @@ target_link_libraries(Beholder
     combatpanel
     main_window
     nameplate
+    nameplate_controller
     statpanel
     store
 )

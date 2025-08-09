@@ -7,28 +7,49 @@
 
 
 NamePlate::NamePlate(
-    std::string aName,
-    int         aLevel,
-    std::string aClass,
-    std::string aRace,
     QWidget *parent
 )
 : QWidget(parent)
-, mName(aName)
-, mLevel(aLevel)
-, mClass(aClass)
-, mRace(aRace)
 {
     setObjectName("namePlate");
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     setLayout(layout);
 
-    mNameLabel = new QLabel(mName.c_str(), this);
+    mNameLabel = new QLabel();
+    mSplashLabel = new QLabel();
+
     mNameLabel->setObjectName("characterName");
-    mSplashLabel = new QLabel(std::string (mClass + " " + std::to_string(aLevel) + " • " + aRace).c_str(), this);
     mSplashLabel->setObjectName("characterSplash");
 
     layout->addWidget(mNameLabel, 0, Qt::AlignHCenter);
     layout->addWidget(mSplashLabel, 0, Qt::AlignHCenter);
+}
+
+void NamePlate::setName(std::string aName)
+{
+    mName = aName;
+}
+
+void NamePlate::setLevel(int aLevel)
+{
+    mLevel = aLevel;
+}
+
+void NamePlate::setClass(std::string aClass)
+{
+    mClass = aClass;
+}
+
+void NamePlate::setRace(std::string aRace)
+{
+    mRace = aRace;
+}
+
+void NamePlate::updateNameLabel() {
+    mNameLabel->setText(mName.c_str());
+}
+
+void NamePlate::updateSplashLabel() {
+    mSplashLabel->setText(std::string (mClass + " " + std::to_string(mLevel) + " • " + mRace).c_str());
 }

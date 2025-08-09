@@ -11,12 +11,16 @@ class NamePlate : public QWidget
 
 public:
     explicit NamePlate(
-        std::string aName,
-        int         aLevel,
-        std::string aClass,
-        std::string aRace,
         QWidget *parent = nullptr
     );
+
+    void setName  (std::string aName);
+    void setLevel (int         aLevel);
+    void setClass (std::string aClass);
+    void setRace  (std::string aRace);
+
+    void updateNameLabel();
+    void updateSplashLabel();
 
 private:
     std::string mName  = "";

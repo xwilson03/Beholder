@@ -4,6 +4,7 @@
 
 #include "combatpanel.h"
 #include "nameplate.h"
+#include "nameplate_controller.h"
 #include "statpanel.h"
 #include "store.h"
 
@@ -27,14 +28,14 @@ int main(int argc, char *argv[])
         race = state->race;
     }
 
-    NamePlate* namePlate = new NamePlate(
-        name,
-        level,
-        characterClass,
-        race
-    );
+    NamePlate* namePlate = new NamePlate();
     StatPanel* statPanel = new StatPanel();
     CombatPanel* combatPanel = new CombatPanel();
+
+    NamePlateController namePlateController (
+        namePlate,
+        store
+    );
 
     MainWindow window (
         namePlate,
