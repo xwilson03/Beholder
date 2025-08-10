@@ -14,20 +14,9 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+
     Store store;
 
-    std::string name;
-    int         level;
-    std::string characterClass;
-    std::string race;
-
-    {
-        Store::Accessor state = store.getState();
-        name = state->name;
-        level = state->level;
-        characterClass = state->characterClass;
-        race = state->race;
-    }
 
     NamePlate* namePlate = new NamePlate();
 
@@ -49,6 +38,13 @@ int main(int argc, char *argv[])
 
     CombatPanel* combatPanel = new CombatPanel();
 
+    MainWindow window (
+        namePlate,
+        statPanel,
+        combatPanel
+    );
+
+
     NamePlateController namePlateController (
         namePlate,
         store
@@ -64,12 +60,7 @@ int main(int argc, char *argv[])
         store
     );
 
-    MainWindow window (
-        namePlate,
-        statPanel,
-        combatPanel
-    );
-    window.show();
 
+    window.show();
     return app.exec();
 }
