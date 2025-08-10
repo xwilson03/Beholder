@@ -38,14 +38,15 @@ class StatPanel : public Panel
 
 public:
     explicit StatPanel(
-        StatBox* aStr,
-        StatBox* aDex,
-        StatBox* aCon,
-        StatBox* aInt,
-        StatBox* aWis,
-        StatBox* aCha,
         QWidget* parent = nullptr
     );
+
+    void setStrength(int aValue);
+    void setDexterity(int aValue);
+    void setConstitution(int aValue);
+    void setIntelligence(int aValue);
+    void setWisdom(int aValue);
+    void setCharisma(int aValue);
 
 private:
 

@@ -3,22 +3,12 @@
 #include "store.h"
 
 StatPanelController::StatPanelController(
-    StatBox* aStrView,
-    StatBox* aDexView,
-    StatBox* aConView,
-    StatBox* aIntView,
-    StatBox* aWisView,
-    StatBox* aChaView,
+    StatPanel* aView,
     Store&     aStore,
     QObject*   parent
 )
 : QObject(parent)
-, mStrView(aStrView)
-, mDexView(aDexView)
-, mConView(aConView)
-, mIntView(aIntView)
-, mWisView(aWisView)
-, mChaView(aChaView)
+, mView(aView)
 , mStore(aStore)
 {
 
@@ -40,10 +30,10 @@ StatPanelController::StatPanelController(
         charisma     = state->abilityScores.charisma;
     }
 
-    mStrView->setValue(strength);
-    mDexView->setValue(dexterity);
-    mConView->setValue(constitution);
-    mIntView->setValue(intelligence);
-    mWisView->setValue(wisdom);
-    mChaView->setValue(charisma);
+    mView->setStrength(strength);
+    mView->setDexterity(dexterity);
+    mView->setConstitution(constitution);
+    mView->setIntelligence(intelligence);
+    mView->setWisdom(wisdom);
+    mView->setCharisma(charisma);
 }

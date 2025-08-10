@@ -20,21 +20,7 @@ int main(int argc, char *argv[])
 
     NamePlate* namePlate = new NamePlate();
 
-    StatBox* strengthBox     = new StatBox("STR");
-    StatBox* dexterityBox    = new StatBox("DEX");
-    StatBox* constitutionBox = new StatBox("CON");
-    StatBox* intelligenceBox = new StatBox("INT");
-    StatBox* wisdomBox       = new StatBox("WIS");
-    StatBox* charismaBox     = new StatBox("CHA");
-
-    StatPanel* statPanel = new StatPanel(
-        strengthBox,
-        dexterityBox,
-        constitutionBox,
-        intelligenceBox,
-        wisdomBox,
-        charismaBox
-    );
+    StatPanel* statPanel = new StatPanel();
 
     CombatPanel* combatPanel = new CombatPanel();
 
@@ -51,12 +37,7 @@ int main(int argc, char *argv[])
     );
 
     StatPanelController statPanelController (
-        strengthBox,
-        dexterityBox,
-        constitutionBox,
-        intelligenceBox,
-        wisdomBox,
-        charismaBox,
+        statPanel,
         store
     );
 
