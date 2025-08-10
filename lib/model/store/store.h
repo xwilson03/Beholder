@@ -26,6 +26,7 @@ struct State {
 
     struct CombatStats {
         uint16_t HP;
+        uint16_t maxHP;
         uint16_t tempHP;
         uint8_t  AC;
         uint8_t  initiative;

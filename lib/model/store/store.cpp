@@ -18,6 +18,7 @@ Store::Store(QObject* parent)
     mState.abilityScores.charisma = 0;
 
     mState.combatStats.HP = 0;
+    mState.combatStats.maxHP = 0;
     mState.combatStats.tempHP = 0;
     mState.combatStats.AC = 0;
     mState.combatStats.initiative = 0;
