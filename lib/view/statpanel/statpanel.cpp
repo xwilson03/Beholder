@@ -10,9 +10,21 @@
 
 
 StatPanel::StatPanel(
-    QWidget *parent
+    StatBox* aStr,
+    StatBox* aDex,
+    StatBox* aCon,
+    StatBox* aInt,
+    StatBox* aWis,
+    StatBox* aCha,
+    QWidget* parent
 )
 : Panel("Ability Scores", parent)
+, mStr(aStr)
+, mDex(aDex)
+, mCon(aCon)
+, mInt(aInt)
+, mWis(aWis)
+, mCha(aCha)
 {
     mStatBoxes = new QWidget(this);
     mStatBoxes->setObjectName("statPanelBoxes");
@@ -20,13 +32,6 @@ StatPanel::StatPanel(
 
     QGridLayout* boxLayout = new QGridLayout(mStatBoxes);
     mStatBoxes->setLayout(boxLayout);
-
-    mStr = new StatBox("STR", 0, mStatBoxes);
-    mDex = new StatBox("DEX", 0, mStatBoxes);
-    mCon = new StatBox("CON", 0, mStatBoxes);
-    mInt = new StatBox("INT", 0, mStatBoxes);
-    mWis = new StatBox("WIS", 0, mStatBoxes);
-    mCha = new StatBox("CHA", 0, mStatBoxes);
 
     boxLayout->addWidget(mStr, 0, 0);
     boxLayout->addWidget(mDex, 0, 1);
@@ -39,12 +44,10 @@ StatPanel::StatPanel(
 
 StatBox::StatBox(
     std::string aStat,
-    int         aValue,
-    QWidget *parent
+    QWidget*    parent
 )
 : QFrame(parent)
 , mStat(aStat)
-, mValue(aValue)
 {
     setObjectName("statBox");
 
@@ -55,11 +58,11 @@ StatBox::StatBox(
     mStatLabel->setObjectName("statNameLabel");
     mStatLabel->setAlignment(Qt::AlignHCenter);
 
-    mValueLabel = new QLabel(QString::number(mValue), this);
+    mValueLabel = new QLabel();
     mValueLabel->setObjectName("statValueLabel");
     mValueLabel->setAlignment(Qt::AlignHCenter);
 
-    mModLabel = new QLabel(QString::number(computeMod(mValue)), this);
+    mModLabel = new QLabel();
     mModLabel->setObjectName("statModLabel");
     mModLabel->setAlignment(Qt::AlignHCenter);
 
@@ -68,7 +71,8 @@ StatBox::StatBox(
     layout->addWidget(mModLabel);
 }
 
-int StatBox::computeMod(int aValue)
-{
-    return (aValue - 10) / 2;
+void StatBox::setValue(int aValue) {
+    mValue = aValue;
+    mValueLabel->setText(QString::number(mValue));
+    mModLabel->setText(QString::number((aValue - 10) / 2));
 }

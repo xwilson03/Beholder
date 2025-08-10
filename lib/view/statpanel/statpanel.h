@@ -16,20 +16,19 @@ class StatBox : public QFrame
 public:
     explicit StatBox(
         std::string aStat,
-        int         aValue,
-        QWidget *parent = nullptr
+        QWidget*    parent = nullptr
     );
 
-private:
+    void setValue(int aValue);
 
-    int computeMod(int aValue);
+private:
 
     std::string mStat  = "";
     int         mValue = 0;
 
     QLabel* mStatLabel  = nullptr;
     QLabel* mValueLabel = nullptr;
-    QLabel* mModLabel = nullptr;
+    QLabel* mModLabel   = nullptr;
 };
 
 
@@ -38,11 +37,17 @@ class StatPanel : public Panel
     Q_OBJECT
 
 public:
-    explicit StatPanel(QWidget *parent = nullptr);
+    explicit StatPanel(
+        StatBox* aStr,
+        StatBox* aDex,
+        StatBox* aCon,
+        StatBox* aInt,
+        StatBox* aWis,
+        StatBox* aCha,
+        QWidget* parent = nullptr
+    );
 
 private:
-
-    QWidget* mStatBoxes = nullptr;
 
     StatBox* mStr = nullptr;
     StatBox* mDex = nullptr;
@@ -50,6 +55,8 @@ private:
     StatBox* mInt = nullptr;
     StatBox* mWis = nullptr;
     StatBox* mCha = nullptr;
+
+    QWidget* mStatBoxes = nullptr;
 };
 
 

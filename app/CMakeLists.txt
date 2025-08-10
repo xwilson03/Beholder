@@ -15,6 +15,7 @@ target_link_libraries(Beholder
     nameplate
     nameplate_controller
     statpanel
+    statpanel_controller
     store
 )
 set_target_properties(Beholder PROPERTIES
