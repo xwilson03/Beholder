@@ -20,16 +20,18 @@ private:
     QWidget* mContent;
 
     QLabel* mHPLabel;
-    Badge*  mHPBadge;
     QLabel* mTempHPLabel;
-    Badge*  mTempHPBadge;
-    QFrame* mSeparator;
     QLabel* mACLabel;
-    Badge*  mACBadge;
     QLabel* mInitiativeLabel;
-    Badge*  mInitiativeBadge;
     QLabel* mSpeedLabel;
+
+    Badge*  mHPBadge;
+    Badge*  mTempHPBadge;
+    Badge*  mACBadge;
+    Badge*  mInitiativeBadge;
     Badge*  mSpeedBadge;
+
+    QFrame* mSeparator;
 
 };
 

@@ -13,41 +13,37 @@ CombatPanel::CombatPanel(
 )
 : Panel("Combat", parent)
 {
-    mContent = new QWidget(this);
+    mContent = new QWidget();
     mContent->setObjectName("combatPanelContent");
     setContent(mContent);
 
-    QGridLayout* layout = new QGridLayout(mContent);
+    QGridLayout* layout = new QGridLayout();
     mContent->setLayout(layout);
 
-    mHPLabel = new QLabel("Hit Points", mContent);
+
+    mHPLabel         = new QLabel("Hit Points");
+    mTempHPLabel     = new QLabel("Temp HP");
+    mACLabel         = new QLabel("Armor Class");
+    mInitiativeLabel = new QLabel("Initiative");
+    mSpeedLabel      = new QLabel("Speed");
+
+    mHPBadge         = new Badge("42/58");
+    mTempHPBadge     = new Badge("5");
+    mACBadge         = new Badge("16");
+    mInitiativeBadge = new Badge("+2");
+    mSpeedBadge      = new Badge("30ft");
+
+    mSeparator       = new QFrame();
+
+
     mHPLabel->setObjectName("HPLabel");
-
-    mHPBadge = new Badge("42/58", mContent);
-
-    mTempHPLabel = new QLabel("Temp HP", mContent);
     mTempHPLabel->setObjectName("tempHPLabel");
-
-    mTempHPBadge = new Badge("5", mContent);
-
-    mSeparator = new QFrame(mContent);
     mSeparator->setObjectName("separator");
     mSeparator->setFrameStyle(QFrame::HLine);
-
-    mACLabel = new QLabel("Armor Class", mContent);
     mACLabel->setObjectName("armorClassLabel");
-
-    mACBadge = new Badge("16", mContent);
-
-    mInitiativeLabel = new QLabel("Initiative", mContent);
     mInitiativeLabel->setObjectName("initiativeLabel");
-
-    mInitiativeBadge = new Badge("+2", mContent);
-
-    mSpeedLabel = new QLabel("Speed", mContent);
     mSpeedLabel->setObjectName("speedLabel");
 
-    mSpeedBadge = new Badge("30ft", mContent);
 
     layout->addWidget(mHPLabel, 0, 0);
     layout->addWidget(mHPBadge, 0, 1, Qt::AlignRight);
