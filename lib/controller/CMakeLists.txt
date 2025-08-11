@@ -4,5 +4,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+add_subdirectory(combatpanel)
 add_subdirectory(nameplate)
 add_subdirectory(statpanel)

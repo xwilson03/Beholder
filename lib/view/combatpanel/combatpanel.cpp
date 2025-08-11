@@ -27,11 +27,11 @@ CombatPanel::CombatPanel(
     mInitiativeLabel = new QLabel("Initiative");
     mSpeedLabel      = new QLabel("Speed");
 
-    mHPBadge         = new Badge("42/58");
-    mTempHPBadge     = new Badge("5");
-    mACBadge         = new Badge("16");
-    mInitiativeBadge = new Badge("+2");
-    mSpeedBadge      = new Badge("30ft");
+    mHPBadge         = new Badge();
+    mTempHPBadge     = new Badge();
+    mACBadge         = new Badge();
+    mInitiativeBadge = new Badge();
+    mSpeedBadge      = new Badge();
 
     mSeparator       = new QFrame();
 
@@ -57,4 +57,48 @@ CombatPanel::CombatPanel(
     layout->addWidget(mSpeedLabel, 5, 0);
     layout->addWidget(mSpeedBadge, 5, 1, Qt::AlignRight);
 
+}
+
+void CombatPanel::setHP(int aValue) {
+    mHP = aValue;
+}
+
+void CombatPanel::setMaxHP(int aValue) {
+    mMaxHP = aValue;
+}
+
+void CombatPanel::setTempHP(int aValue) {
+    mTempHP = aValue;
+}
+
+void CombatPanel::setAC(int aValue) {
+    mAC = aValue;
+}
+
+void CombatPanel::setInitiative(int aValue) {
+    mInitiative = aValue;
+}
+
+void CombatPanel::setSpeed(int aValue) {
+    mSpeed = aValue;
+}
+
+void CombatPanel::updateHPBadge() {
+    mHPBadge->setText(QString::number(mHP) + "/" + QString::number(mMaxHP));
+}
+
+void CombatPanel::updateTempHPBadge() {
+    mTempHPBadge->setText(QString::number(mTempHP));
+}
+
+void CombatPanel::updateACBadge() {
+    mACBadge->setText(QString::number(mAC));
+}
+
+void CombatPanel::updateInitiativeBadge() {
+    mInitiativeBadge->setText("+" + QString::number(mInitiative));
+}
+
+void CombatPanel::updateSpeedBadge() {
+    mSpeedBadge->setText(QString::number(mSpeed));
 }

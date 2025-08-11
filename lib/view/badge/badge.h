@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QObject>
 #include <QResizeEvent>
+#include <QString>
 #include <QWidget>
 
 
@@ -14,9 +15,10 @@ class Badge : public QFrame
 
 public:
     explicit Badge(
-        std::string aText,
         QWidget *parent = nullptr
     );
+
+    void setText(QString aText);
 
 private:
     QLabel* mTextLabel = nullptr;

@@ -15,7 +15,27 @@ class CombatPanel : public Panel
 public:
     explicit CombatPanel(QWidget *parent = nullptr);
 
+    void setHP(int aValue);
+    void setMaxHP(int aValue);
+    void setTempHP(int aValue);
+    void setAC(int aValue);
+    void setInitiative(int aValue);
+    void setSpeed(int aValue);
+
+    void updateHPBadge();
+    void updateTempHPBadge();
+    void updateACBadge();
+    void updateInitiativeBadge();
+    void updateSpeedBadge();
+
 private:
+
+    int mHP = 0;
+    int mMaxHP = 0;
+    int mTempHP = 0;
+    int mAC = 0;
+    int mInitiative = 0;
+    int mSpeed = 0;
 
     QWidget* mContent;
 

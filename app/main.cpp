@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 
 #include "combatpanel.h"
+#include "combatpanel_controller.h"
 #include "nameplate.h"
 #include "nameplate_controller.h"
 #include "statpanel.h"
@@ -19,9 +20,7 @@ int main(int argc, char *argv[])
 
 
     NamePlate* namePlate = new NamePlate();
-
     StatPanel* statPanel = new StatPanel();
-
     CombatPanel* combatPanel = new CombatPanel();
 
     MainWindow window (
@@ -38,6 +37,11 @@ int main(int argc, char *argv[])
 
     StatPanelController statPanelController (
         statPanel,
+        store
+    );
+
+    CombatPanelController combatPanelController (
+        combatPanel,
         store
     );
 
