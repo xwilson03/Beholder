@@ -2,7 +2,7 @@
 #define STORE_H
 
 #include <QObject>
-#include <mutex>
+#include <shared_mutex>
 #include <map>
 
 
@@ -76,10 +76,10 @@ public:
         const State* operator->() const;
 
     private:
-        Accessor(std::mutex &aLock, const State &aState);
+        Accessor(std::shared_mutex &aLock, const State &aState);
 
         const State& mState;
-        const std::lock_guard<std::mutex> mLock;
+        const std::shared_lock<std::shared_mutex> mLock;
 
     };
 
@@ -91,7 +91,7 @@ signals:
 
 private:
     State mState;
-    std::mutex mLock;
+    std::shared_mutex mLock;
 
 };
 

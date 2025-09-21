@@ -78,7 +78,7 @@ Store::Accessor Store::getState()
 }
 
 Store::Accessor::Accessor(
-    std::mutex &aLock,
+    std::shared_mutex &aLock,
     const State &aState
 )
 : mLock(aLock)
