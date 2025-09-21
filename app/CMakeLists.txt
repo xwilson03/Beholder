@@ -14,6 +14,8 @@ target_link_libraries(Beholder
     combatpanel_controller
     featurepanel
     featurepanel_controller
+    inventorypanel
+    inventorypanel_controller
     main_window
     nameplate
     nameplate_controller

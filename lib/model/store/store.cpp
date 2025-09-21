@@ -41,6 +41,29 @@ Store::Store(QObject* parent)
             true, 0, 0
         }
     };
+
+    mState.items = {
+        {
+            "Longsword",
+            "Weapon",
+            true
+        },
+        {
+            "Shield",
+            "Armor",
+            true
+        },
+        {
+            "Healing Potion",
+            "Consumable",
+            false
+        },
+        {
+            "Rope (50 ft)",
+            "Gear",
+            false
+        }
+    };
 }
 
 Store::Accessor Store::getState()

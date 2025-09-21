@@ -9,6 +9,7 @@
 #include "statpanel.h"
 #include "combatpanel.h"
 #include "featurepanel.h"
+#include "inventorypanel.h"
 
 
 MainWindow::MainWindow(
@@ -16,6 +17,7 @@ MainWindow::MainWindow(
     StatPanel* aStatPanel,
     CombatPanel* aCombatPanel,
     FeaturePanel* aFeaturePanel,
+    InventoryPanel* aInventoryPanel,
     QWidget *parent
 )
 : QMainWindow(parent)
@@ -23,6 +25,7 @@ MainWindow::MainWindow(
 , mStatPanel(aStatPanel)
 , mCombatPanel(aCombatPanel)
 , mFeaturePanel(aFeaturePanel)
+, mInventoryPanel(aInventoryPanel)
 {
     setObjectName("mainWindow");
     setWindowTitle("Beholder");
@@ -155,6 +158,24 @@ MainWindow::MainWindow(
             "font-size: 12px;"
         "}"
 
+        // Inventory Panel
+
+        "inventoryPanelContent {}"
+
+        "inventoryItem {}"
+
+        "inventoryText {}"
+
+        "#inventoryNameLabel {"
+            "color: black;"
+            "font-size: 14px;"
+        "}"
+
+        "#inventoryCategoryLabel {"
+            "color: gray;"
+            "font-size: 12px;"
+        "}"
+
     );
 
 
@@ -184,6 +205,7 @@ MainWindow::MainWindow(
     rightSidebar->setLayout(rightLayout);
 
     rightLayout->addWidget(mFeaturePanel);
+    rightLayout->addWidget(mInventoryPanel);
 
     rightLayout->addStretch(1);
 

@@ -44,6 +44,14 @@ struct State {
     };
 
     std::vector<Feature> features;
+
+    struct Item {
+        std::string name;
+        std::string category;
+        bool equipped;
+    };
+
+    std::vector<Item> items;
 };
 
 class Store : QObject {

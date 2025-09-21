@@ -10,6 +10,8 @@
 #include "statpanel_controller.h"
 #include "featurepanel.h"
 #include "featurepanel_controller.h"
+#include "inventorypanel.h"
+#include "inventorypanel_controller.h"
 #include "store.h"
 
 
@@ -25,12 +27,14 @@ int main(int argc, char *argv[])
     StatPanel* statPanel = new StatPanel();
     CombatPanel* combatPanel = new CombatPanel();
     FeaturePanel* featurePanel = new FeaturePanel();
+    InventoryPanel* inventoryPanel = new InventoryPanel();
 
     MainWindow window (
         namePlate,
         statPanel,
         combatPanel,
-        featurePanel
+        featurePanel,
+        inventoryPanel
     );
 
 
@@ -51,6 +55,11 @@ int main(int argc, char *argv[])
 
     FeaturePanelController featurePanelController (
         featurePanel,
+        store
+    );
+
+    InventoryPanelController inventoryPanelController (
+        inventoryPanel,
         store
     );
 

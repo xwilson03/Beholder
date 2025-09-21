@@ -7,6 +7,7 @@
 
 #include "combatpanel.h"
 #include "featurepanel.h"
+#include "inventorypanel.h"
 #include "nameplate.h"
 #include "statpanel.h"
 
@@ -21,6 +22,7 @@ public:
         StatPanel*   aStatPanel,
         CombatPanel* aCombatPanel,
         FeaturePanel* aFeaturePanel,
+        InventoryPanel* aInventoryPanel,
         QWidget* parent = nullptr
     );
 
@@ -29,6 +31,7 @@ private:
     StatPanel*   mStatPanel;
     CombatPanel* mCombatPanel;
     FeaturePanel* mFeaturePanel;
+    InventoryPanel* mInventoryPanel;
 };
 
 #endif // MAINWINDOW_H
