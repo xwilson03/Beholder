@@ -12,6 +12,8 @@ target_link_libraries(Beholder
     Qt6::Widgets
     combatpanel
     combatpanel_controller
+    featurepanel
+    featurepanel_controller
     main_window
     nameplate
     nameplate_controller

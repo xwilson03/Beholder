@@ -6,6 +6,7 @@ set(CMAKE_AUTOUIC ON)
 
 add_subdirectory(badge)
 add_subdirectory(combatpanel)
+add_subdirectory(featurepanel)
 add_subdirectory(mainwindow)
 add_subdirectory(nameplate)
 add_subdirectory(panel)

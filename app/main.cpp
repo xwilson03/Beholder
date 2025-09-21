@@ -8,6 +8,8 @@
 #include "nameplate_controller.h"
 #include "statpanel.h"
 #include "statpanel_controller.h"
+#include "featurepanel.h"
+#include "featurepanel_controller.h"
 #include "store.h"
 
 
@@ -22,11 +24,13 @@ int main(int argc, char *argv[])
     NamePlate* namePlate = new NamePlate();
     StatPanel* statPanel = new StatPanel();
     CombatPanel* combatPanel = new CombatPanel();
+    FeaturePanel* featurePanel = new FeaturePanel();
 
     MainWindow window (
         namePlate,
         statPanel,
-        combatPanel
+        combatPanel,
+        featurePanel
     );
 
 
@@ -45,6 +49,10 @@ int main(int argc, char *argv[])
         store
     );
 
+    FeaturePanelController featurePanelController (
+        featurePanel,
+        store
+    );
 
     window.show();
     return app.exec();

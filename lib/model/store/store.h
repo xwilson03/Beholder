@@ -35,6 +35,15 @@ struct State {
 
     CombatStats combatStats;
 
+    struct Feature {
+        std::string name;
+        std::string category;
+        bool passive;
+        uint8_t charges;
+        uint8_t maxCharges;
+    };
+
+    std::vector<Feature> features;
 };
 
 class Store : QObject {

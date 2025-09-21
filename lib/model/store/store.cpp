@@ -23,6 +23,24 @@ Store::Store(QObject* parent)
     mState.combatStats.AC = 0;
     mState.combatStats.initiative = 0;
     mState.combatStats.speed = 0;
+
+    mState.features = {
+        {
+            "Action Surge",
+            "Combat",
+            false, 1, 1
+        },
+        {
+            "Second Wind",
+            "Healing",
+            false, 0, 1
+        },
+        {
+            "Fighting Style",
+            "Combat",
+            true, 0, 0
+        }
+    };
 }
 
 Store::Accessor Store::getState()

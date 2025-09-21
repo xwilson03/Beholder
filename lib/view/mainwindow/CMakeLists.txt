@@ -11,6 +11,7 @@ target_link_libraries(main_window
   PRIVATE
     Qt6::Widgets
     combatpanel
+    featurepanel
     nameplate
     statpanel
 )

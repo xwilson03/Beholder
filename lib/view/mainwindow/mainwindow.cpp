@@ -8,18 +8,21 @@
 #include "nameplate.h"
 #include "statpanel.h"
 #include "combatpanel.h"
+#include "featurepanel.h"
 
 
 MainWindow::MainWindow(
     NamePlate* aNamePlate,
     StatPanel* aStatPanel,
     CombatPanel* aCombatPanel,
+    FeaturePanel* aFeaturePanel,
     QWidget *parent
 )
 : QMainWindow(parent)
 , mNamePlate(aNamePlate)
 , mStatPanel(aStatPanel)
 , mCombatPanel(aCombatPanel)
+, mFeaturePanel(aFeaturePanel)
 {
     setObjectName("mainWindow");
     setWindowTitle("Beholder");
@@ -134,6 +137,24 @@ MainWindow::MainWindow(
             "color: black;"
         "}"
 
+        // Feature Panel
+
+        "featurePanelContent {}"
+
+        "featureItem {}"
+
+        "featureText {}"
+
+        "#featureNameLabel {"
+            "color: black;"
+            "font-size: 14px;"
+        "}"
+
+        "#featureCategoryLabel {"
+            "color: gray;"
+            "font-size: 12px;"
+        "}"
+
     );
 
 
@@ -161,6 +182,8 @@ MainWindow::MainWindow(
     rightSidebar->setObjectName("sidebar");
     QVBoxLayout* rightLayout = new QVBoxLayout();
     rightSidebar->setLayout(rightLayout);
+
+    rightLayout->addWidget(mFeaturePanel);
 
     rightLayout->addStretch(1);
 
