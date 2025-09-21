@@ -21,16 +21,21 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-
     Store store;
 
-
-    NamePlate* namePlate = new NamePlate();
-    StatPanel* statPanel = new StatPanel();
-    CombatPanel* combatPanel = new CombatPanel();
-    FeaturePanel* featurePanel = new FeaturePanel();
+    NamePlate*      namePlate      = new NamePlate();
+    StatPanel*      statPanel      = new StatPanel();
+    CombatPanel*    combatPanel    = new CombatPanel();
+    FeaturePanel*   featurePanel   = new FeaturePanel();
     InventoryPanel* inventoryPanel = new InventoryPanel();
-    SpellPanel* spellPanel = new SpellPanel();
+    SpellPanel*     spellPanel     = new SpellPanel();
+
+    NamePlateController      namePlateController      (namePlate,      store);
+    StatPanelController      statPanelController      (statPanel,      store);
+    CombatPanelController    combatPanelController    (combatPanel,    store);
+    FeaturePanelController   featurePanelController   (featurePanel,   store);
+    InventoryPanelController inventoryPanelController (inventoryPanel, store);
+    SpellPanelController     spellPanelController     (spellPanel,     store);
 
     MainWindow window (
         namePlate,
@@ -39,37 +44,6 @@ int main(int argc, char *argv[])
         featurePanel,
         inventoryPanel,
         spellPanel
-    );
-
-
-    NamePlateController namePlateController (
-        namePlate,
-        store
-    );
-
-    StatPanelController statPanelController (
-        statPanel,
-        store
-    );
-
-    CombatPanelController combatPanelController (
-        combatPanel,
-        store
-    );
-
-    FeaturePanelController featurePanelController (
-        featurePanel,
-        store
-    );
-
-    InventoryPanelController inventoryPanelController (
-        inventoryPanel,
-        store
-    );
-
-    SpellPanelController SpellPanelController (
-        spellPanel,
-        store
     );
 
     store.emit stateChanged();
