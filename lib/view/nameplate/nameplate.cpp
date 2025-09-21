@@ -13,6 +13,18 @@ NamePlate::NamePlate(
 {
     setObjectName("namePlate");
 
+    setStyleSheet(
+        "#namePlate {}"
+
+        "#characterName {"
+            "color: purple;"
+        "}"
+
+        "#characterSplash {"
+            "color: dimgray;"
+        "}"
+    );
+
     QVBoxLayout* layout = new QVBoxLayout(this);
     setLayout(layout);
 

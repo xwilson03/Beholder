@@ -13,6 +13,18 @@ Badge::Badge(
 {
     setObjectName("badge");
 
+    setStyleSheet(
+        "#badge {"
+            "background-color: whitesmoke;"
+            "border: 2px solid gainsboro;"
+            "border-radius: 10px;"
+        "}"
+
+        "#badgeText {"
+            "color: black;"
+        "}"
+    );
+
     QVBoxLayout* layout = new QVBoxLayout();
     setLayout(layout);
 

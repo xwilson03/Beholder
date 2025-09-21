@@ -15,6 +15,34 @@ InventoryPanel::InventoryPanel(
     mContent->setObjectName("inventoryPanelContent");
     setContent(mContent);
 
+    setStyleSheet(
+        "#panel {"
+            "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 whitesmoke, stop: 1 gainsboro);"
+            "border: 2px solid gainsboro;"
+            "border-radius: 16px;"
+        "}"
+
+        "#panelTitle {"
+            "color: purple;"
+        "}"
+
+        "inventoryPanelContent {}"
+
+        "inventoryItem {}"
+
+        "inventoryText {}"
+
+        "#inventoryNameLabel {"
+            "color: black;"
+            "font-size: 14px;"
+        "}"
+
+        "#inventoryCategoryLabel {"
+            "color: gray;"
+            "font-size: 12px;"
+        "}"
+    );
+
     QVBoxLayout* layout = new QVBoxLayout();
     mContent->setLayout(layout);
 

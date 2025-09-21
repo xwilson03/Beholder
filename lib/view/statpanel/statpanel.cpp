@@ -18,6 +18,42 @@ StatPanel::StatPanel(
     mStatBoxes->setObjectName("statPanelBoxes");
     setContent(mStatBoxes);
 
+    setStyleSheet(
+        "#panel {"
+            "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 whitesmoke, stop: 1 gainsboro);"
+            "border: 2px solid gainsboro;"
+            "border-radius: 16px;"
+        "}"
+
+        "#panelTitle {"
+            "color: purple;"
+        "}"
+
+        "#statPanelBoxes {}"
+
+        "#statBox {"
+            "background-color: purple;"
+            "border-radius: 16px;"
+        "}"
+
+        "#statNameLabel {"
+            "color: white;"
+            "font-size: 14px;"
+            "font: bold;"
+        "}"
+
+        "#statValueLabel {"
+            "color: white;"
+            "font-size: 20px;"
+            "font: bold;"
+        "}"
+
+        "#statModLabel {"
+            "color: white;"
+            "font-size: 14px;"
+        "}"
+    );
+
     QGridLayout* boxLayout = new QGridLayout(mStatBoxes);
     mStatBoxes->setLayout(boxLayout);
 

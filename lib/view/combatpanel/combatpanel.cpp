@@ -17,6 +17,44 @@ CombatPanel::CombatPanel(
     mContent->setObjectName("combatPanelContent");
     setContent(mContent);
 
+    setStyleSheet(
+        "#panel {"
+            "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 whitesmoke, stop: 1 gainsboro);"
+            "border: 2px solid gainsboro;"
+            "border-radius: 16px;"
+        "}"
+
+        "#panelTitle {"
+            "color: purple;"
+        "}"
+
+        "combatPanelContent {}"
+
+        "#HPLabel {"
+            "color: black;"
+        "}"
+
+        "#tempHPLabel {"
+            "color: black;"
+        "}"
+
+        "#separator {"
+            "color: grey;"
+        "}"
+
+        "#armorClassLabel {"
+            "color: black;"
+        "}"
+
+        "#initiativeLabel {"
+            "color: black;"
+        "}"
+
+        "#speedLabel {"
+            "color: black;"
+        "}"
+    );
+
     QGridLayout* layout = new QGridLayout();
     mContent->setLayout(layout);
 
