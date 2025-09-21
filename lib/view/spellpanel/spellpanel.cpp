@@ -39,6 +39,7 @@ void SpellPanel::addSpellLevel(
     spellLevel->setObjectName("spellLevel");
 
     QHBoxLayout* spellLevelLayout = new QHBoxLayout();
+    spellLevelLayout->setContentsMargins(0,0,0,0);
     spellLevel->setLayout(spellLevelLayout);
 
     QLabel* spellLabel = new QLabel((std::string("Level ") + std::to_string(level)).c_str());

@@ -39,6 +39,7 @@ void InventoryPanel::addItem(
     inventoryItem->setObjectName("inventoryItem");
 
     QHBoxLayout* inventoryItemLayout = new QHBoxLayout();
+    inventoryItemLayout->setContentsMargins(0,0,0,0);
     inventoryItem->setLayout(inventoryItemLayout);
 
     QWidget* inventoryText = new QWidget();

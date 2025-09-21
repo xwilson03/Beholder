@@ -41,6 +41,7 @@ void FeaturePanel::addFeature(
     featureItem->setObjectName("featureItem");
 
     QHBoxLayout* featureItemLayout = new QHBoxLayout();
+    featureItemLayout->setContentsMargins(0,0,0,0);
     featureItem->setLayout(featureItemLayout);
 
     QWidget* featureText = new QWidget();
