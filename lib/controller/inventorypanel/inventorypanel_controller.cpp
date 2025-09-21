@@ -12,6 +12,13 @@ InventoryPanelController::InventoryPanelController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &InventoryPanelController::onStateChanged
+    );
+}
+
+void InventoryPanelController::onStateChanged() {
 
     std::vector<State::Item> items = {};
     {

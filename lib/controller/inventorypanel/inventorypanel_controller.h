@@ -8,7 +8,7 @@
 #include "store.h"
 
 
-class InventoryPanelController : QObject {
+class InventoryPanelController : public QObject {
 
     Q_OBJECT
 
@@ -18,6 +18,8 @@ public:
         Store&     aStore,
         QObject*   parent = nullptr
     );
+
+    void onStateChanged();
 
 private:
     InventoryPanel* mView;

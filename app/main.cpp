@@ -72,6 +72,8 @@ int main(int argc, char *argv[])
         store
     );
 
+    store.emit stateChanged();
+
     window.show();
     return app.exec();
 }

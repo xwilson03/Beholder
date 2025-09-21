@@ -11,6 +11,13 @@ SpellPanelController::SpellPanelController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &SpellPanelController::onStateChanged
+    );
+}
+
+void SpellPanelController::onStateChanged() {
 
     std::map<
         uint8_t, State::SpellLevel

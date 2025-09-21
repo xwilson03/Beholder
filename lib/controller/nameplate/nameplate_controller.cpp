@@ -11,6 +11,13 @@ NamePlateController::NamePlateController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &NamePlateController::onStateChanged
+    );
+}
+
+void NamePlateController::onStateChanged() {
 
     std::string name;
     int         level;

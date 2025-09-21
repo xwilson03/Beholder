@@ -64,7 +64,7 @@ struct State {
     > spellLevels;
 };
 
-class Store : QObject {
+class Store : public QObject {
     Q_OBJECT
 
 public:
@@ -85,6 +85,9 @@ public:
 
     Store(QObject* parent = nullptr);
     Accessor getState();
+
+signals:
+    void stateChanged();
 
 private:
     State mState;

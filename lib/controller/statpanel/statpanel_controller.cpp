@@ -11,6 +11,13 @@ StatPanelController::StatPanelController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &StatPanelController::onStateChanged
+    );
+}
+
+void StatPanelController::onStateChanged() {
 
     int strength;
     int dexterity;

@@ -12,6 +12,13 @@ FeaturePanelController::FeaturePanelController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &FeaturePanelController::onStateChanged
+    );
+}
+
+void FeaturePanelController::onStateChanged() {
 
     std::vector<State::Feature> features = {};
     {

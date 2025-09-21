@@ -11,6 +11,13 @@ CombatPanelController::CombatPanelController(
 , mView(aView)
 , mStore(aStore)
 {
+    connect(
+        &mStore, &Store::stateChanged,
+        this, &CombatPanelController::onStateChanged
+    );
+}
+
+void CombatPanelController::onStateChanged() {
 
     int HP;
     int maxHP;
