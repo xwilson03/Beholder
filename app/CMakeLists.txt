@@ -19,6 +19,8 @@ target_link_libraries(Beholder
     main_window
     nameplate
     nameplate_controller
+    spellpanel
+    spellpanel_controller
     statpanel
     statpanel_controller
     store

@@ -14,5 +14,6 @@ target_link_libraries(main_window
     featurepanel
     inventorypanel
     nameplate
+    spellpanel
     statpanel
 )

@@ -64,6 +64,12 @@ Store::Store(QObject* parent)
             false
         }
     };
+
+    mState.spellLevels = {
+        {1, {2, 4}},
+        {2, {1, 3}},
+        {3, {0, 2}}
+    };
 }
 
 Store::Accessor Store::getState()

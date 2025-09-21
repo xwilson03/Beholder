@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <mutex>
+#include <map>
 
 
 struct State {
@@ -52,6 +53,15 @@ struct State {
     };
 
     std::vector<Item> items;
+
+    struct SpellLevel {
+        uint8_t spellSlots;
+        uint8_t maxSpellSlots;
+    };
+
+    std::map<
+        uint8_t, SpellLevel
+    > spellLevels;
 };
 
 class Store : QObject {

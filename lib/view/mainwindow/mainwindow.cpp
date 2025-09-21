@@ -10,6 +10,7 @@
 #include "combatpanel.h"
 #include "featurepanel.h"
 #include "inventorypanel.h"
+#include "spellpanel.h"
 
 
 MainWindow::MainWindow(
@@ -18,6 +19,7 @@ MainWindow::MainWindow(
     CombatPanel* aCombatPanel,
     FeaturePanel* aFeaturePanel,
     InventoryPanel* aInventoryPanel,
+    SpellPanel* aSpellPanel,
     QWidget *parent
 )
 : QMainWindow(parent)
@@ -26,6 +28,7 @@ MainWindow::MainWindow(
 , mCombatPanel(aCombatPanel)
 , mFeaturePanel(aFeaturePanel)
 , mInventoryPanel(aInventoryPanel)
+, mSpellPanel(aSpellPanel)
 {
     setObjectName("mainWindow");
     setWindowTitle("Beholder");
@@ -176,6 +179,19 @@ MainWindow::MainWindow(
             "font-size: 12px;"
         "}"
 
+        // Spell Panel
+
+        "spellPanelContent {}"
+
+        "spellLevel {}"
+
+        "#spellLevelLabel {"
+            "color: black;"
+            "font-size: 14px;"
+        "}"
+
+        "#spellSlotBubbles {}"
+
     );
 
 
@@ -206,6 +222,7 @@ MainWindow::MainWindow(
 
     rightLayout->addWidget(mFeaturePanel);
     rightLayout->addWidget(mInventoryPanel);
+    rightLayout->addWidget(mSpellPanel);
 
     rightLayout->addStretch(1);
 
