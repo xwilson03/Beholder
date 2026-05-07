@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QStackedLayout>
 
+#include "map.h"
 #include "topbar.h"
 
 
@@ -31,9 +32,7 @@ MainWindow::MainWindow(
     auto page_display = new QStackedLayout();
     main_layout->addLayout(page_display, 1);
 
-
     // Content
-    auto map_graphics_scene = new QGraphicsScene();
-    auto map_page = new QGraphicsView(map_graphics_scene);
+    auto map_page = new Map();
     page_display->addWidget(map_page);
 }
