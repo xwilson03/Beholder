@@ -10,6 +10,11 @@ class MapGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
 
+    float mCellSize = 64.0;
+
+protected:
+    void drawForeground(QPainter* aPainter, const QRectF& aRect) override;
+
 public:
     MapGraphicsScene(
         QWidget* parent = nullptr
