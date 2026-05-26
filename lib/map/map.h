@@ -3,8 +3,12 @@
 #include <QButtonGroup>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QMimeData>
 #include <QObject>
+#include <QPointF>
 #include <QPushButton>
+#include <QString>
+#include <QUrl>
 #include <QWheelEvent>
 #include <QWidget>
 
@@ -40,14 +44,23 @@ public:
 
     void setMode(MapMode aMode);
 
+signals:
+    void imageDropped(const QString& aPath, const QPointF& aScenePos);
+
 protected:
     void contextMenuEvent(QContextMenuEvent* aEvent) override;
     void mousePressEvent(QMouseEvent* aEvent) override;
     void mouseMoveEvent(QMouseEvent* aEvent) override;
     void mouseReleaseEvent(QMouseEvent* aEvent) override;
     void wheelEvent(QWheelEvent* aEvent) override;
+    void dragEnterEvent(QDragEnterEvent* aEvent) override;
+    void dragMoveEvent(QDragMoveEvent* aEvent) override;
+    void dropEvent(QDropEvent* aEvent) override;
 
 private:
+    bool hasLocalImageUrls(const QMimeData* aData) const;
+    static bool isLocalImageUrl(const QUrl& aUrl);
+
     MapMode mCurrentMode = MapMode::Select;
     MapOperation mCurrentOperation = MapOperation::None;
     QPoint mLastMousePos;
@@ -65,6 +78,8 @@ public:
     );
 
 private:
+    void importImage();
+    void addImage(const QString& aPath, const QPointF& aScenePos);
     void positionToolbar();
     void resizeEvent(QResizeEvent* aEvent) override;
 
@@ -75,4 +90,5 @@ private:
     QButtonGroup* mButtonGroup = nullptr;
     QPushButton* mSelectButton = nullptr;
     QPushButton* mRotateButton = nullptr;
+    QPushButton* mImportButton = nullptr;
 };

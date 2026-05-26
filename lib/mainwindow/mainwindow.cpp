@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 
-#include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QVBoxLayout>
 #include <QStackedLayout>
 

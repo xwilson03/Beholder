@@ -1,14 +1,25 @@
 #include "map.h"
+#include "mappixmapitem.h"
+
 
 #include <QContextMenuEvent>
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
+#include <QDropEvent>
+#include <QFileDialog>
 #include <QHBoxLayout>
+#include <QMimeData>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QMouseEvent>
+#include <QPainter>
 #include <QPushButton>
 #include <QScrollBar>
 #include <QStyle>
-#include <QtMath>
+#include <QUrl>
 #include <QVBoxLayout>
 #include <QWheelEvent>
+
 
 
 MapGraphicsScene::MapGraphicsScene(
@@ -41,6 +52,7 @@ MapGraphicsView::MapGraphicsView(
 )
 : QGraphicsView(aParent)
 {
+    setAcceptDrops(true);
 }
 
 void MapGraphicsView::setMode(MapMode aMode)
@@ -52,12 +64,68 @@ void MapGraphicsView::setMode(MapMode aMode)
     case MapMode::Select:
         setCursor(Qt::ArrowCursor);
         setDragMode(QGraphicsView::RubberBandDrag);
+        setInteractive(true);
         break;
     case MapMode::Rotate:
         setCursor(Qt::OpenHandCursor);
         setDragMode(QGraphicsView::NoDrag);
+        setInteractive(false);
         break;
     }
+}
+
+bool MapGraphicsView::isLocalImageUrl(const QUrl& aUrl)
+{
+    if (!aUrl.isLocalFile()) return false;
+
+    static QMimeDatabase sMimeDb;
+    QMimeType mime = sMimeDb.mimeTypeForUrl(aUrl);
+    return mime.name().startsWith("image/");
+}
+
+bool MapGraphicsView::hasLocalImageUrls(const QMimeData* aData) const
+{
+    if (!aData->hasUrls()) return false;
+
+    for (const QUrl& url : aData->urls()) {
+        if (isLocalImageUrl(url)) return true;
+    }
+
+    return false;
+}
+
+void MapGraphicsView::dragEnterEvent(QDragEnterEvent* aEvent)
+{
+    if (hasLocalImageUrls(aEvent->mimeData())) {
+        aEvent->acceptProposedAction();
+        return;
+    }
+
+    QGraphicsView::dragEnterEvent(aEvent);
+}
+
+void MapGraphicsView::dragMoveEvent(QDragMoveEvent* aEvent)
+{
+    if (hasLocalImageUrls(aEvent->mimeData())) {
+        aEvent->acceptProposedAction();
+        return;
+    }
+
+    QGraphicsView::dragMoveEvent(aEvent);
+}
+
+void MapGraphicsView::dropEvent(QDropEvent* aEvent)
+{
+    if (hasLocalImageUrls(aEvent->mimeData())) {
+        for (const QUrl& url : aEvent->mimeData()->urls()) {
+            if (!isLocalImageUrl(url)) continue;
+            emit imageDropped(url.toLocalFile(), mapToScene(aEvent->position().toPoint()));
+        }
+        aEvent->acceptProposedAction();
+        return;
+    }
+
+    QGraphicsView::dropEvent(aEvent);
 }
 
 void MapGraphicsView::contextMenuEvent(QContextMenuEvent* aEvent)
@@ -169,9 +237,16 @@ void MapGraphicsView::wheelEvent(QWheelEvent* aEvent)
     const float newZoomLevel = std::clamp(mZoomLevel * zoomFactor, minimumZoom, maximumZoom);
     const float scaleDelta = newZoomLevel / mZoomLevel;
 
-    setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
-    scale(scaleDelta, scaleDelta);
+    const QPointF anchorScene = mapToScene(aEvent->position().toPoint());
+    const QPointF anchorViewport = aEvent->position().toPoint();
+
     setTransformationAnchor(QGraphicsView::AnchorViewCenter);
+    scale(scaleDelta, scaleDelta);
+
+    const QPointF delta = anchorViewport - mapFromScene(anchorScene);
+    QTransform t = transform();
+    t = QTransform::fromTranslate(delta.x(), delta.y()) * t;
+    setTransform(t);
 
     mZoomLevel = newZoomLevel;
 }
@@ -232,8 +307,19 @@ Map::Map(
     mButtonGroup->addButton(mRotateButton, static_cast<int>(MapMode::Rotate));
     toolbarLayout->addWidget(mRotateButton);
 
+    mImportButton = new QPushButton(mToolBar);
+    mImportButton->setIcon(style()->standardIcon(QStyle::SP_DialogOpenButton));
+    mImportButton->setToolTip("Import Image");
+    toolbarLayout->addWidget(mImportButton);
+
     connect(mButtonGroup, &QButtonGroup::idClicked, this, [this](int id) {
         mGraphicsView->setMode(static_cast<MapMode>(id));
+    });
+
+    connect(mImportButton, &QPushButton::clicked, this, &Map::importImage);
+
+    connect(mGraphicsView, &MapGraphicsView::imageDropped, this, [this](const QString& aPath, const QPointF& aScenePos) {
+        addImage(aPath, aScenePos);
     });
 
     auto layout = new QVBoxLayout(this);
@@ -241,6 +327,37 @@ Map::Map(
     layout->addWidget(mGraphicsView);
 
     mGraphicsView->setMode(MapMode::Select);
+}
+
+void Map::importImage()
+{
+    const QString path = QFileDialog::getOpenFileName(
+        this,
+        "Import Image",
+        QString(),
+        "Images (*.png *.jpg *.jpeg *.bmp *.webp)"
+    );
+
+    if (path.isEmpty())
+        return;
+
+    const QPointF center = mGraphicsView->mapToScene(
+        mGraphicsView->viewport()->rect().center()
+    );
+
+    addImage(path, center);
+}
+
+void Map::addImage(const QString& aPath, const QPointF& aScenePos)
+{
+    QPixmap pixmap(aPath);
+    if (pixmap.isNull())
+        return;
+
+    auto item = new MapPixmapItem(pixmap);
+    item->setPos(aScenePos.x() - pixmap.width()  / 2.0,
+                 aScenePos.y() - pixmap.height() / 2.0);
+    mGraphicsScene->addItem(item);
 }
 
 void Map::positionToolbar()

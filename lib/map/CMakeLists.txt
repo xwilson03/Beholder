@@ -6,6 +6,7 @@ set(CMAKE_AUTOUIC ON)
 
 add_library(map
   map.cpp
+  mappixmapitem.cpp
 )
 target_include_directories(map
   PUBLIC
