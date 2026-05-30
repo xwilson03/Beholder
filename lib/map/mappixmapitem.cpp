@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <numbers>
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -33,10 +34,10 @@ QRectF MapPixmapItem::boundingRect() const
 {
     QRectF r = QGraphicsPixmapItem::boundingRect();
     const float viewZoom = currentViewZoom();
-    const float rh_x = kRotateHandleRadius / (mScaleX * viewZoom);
-    const float rh_y = kRotateHandleRadius / (mScaleY * viewZoom);
+    const float rhX = kRotateHandleRadius / (mScaleX * viewZoom);
+    const float rhY = kRotateHandleRadius / (mScaleY * viewZoom);
     const float offs = kRotateHandleOffset / (mScaleY * viewZoom);
-    r.adjust(-rh_x, -offs - rh_y, rh_x, 0);
+    r.adjust(-rhX, -offs - rhY, rhX, 0);
     return r;
 }
 
@@ -44,10 +45,10 @@ QPainterPath MapPixmapItem::shape() const
 {
     QPainterPath path = QGraphicsPixmapItem::shape();
     const float viewZoom = currentViewZoom();
-    const float rh_x = kRotateHandleRadius / (mScaleX * viewZoom);
-    const float rh_y = kRotateHandleRadius / (mScaleY * viewZoom);
+    const float rhX = kRotateHandleRadius / (mScaleX * viewZoom);
+    const float rhY = kRotateHandleRadius / (mScaleY * viewZoom);
     const float offs = kRotateHandleOffset / (mScaleY * viewZoom);
-    path.addEllipse(QPointF(pixmap().width() / 2.0f, -offs), rh_x, rh_y);
+    path.addEllipse(QPointF(pixmap().width() / 2.0f, -offs), rhX, rhY);
     return path;
 }
 
@@ -68,13 +69,13 @@ void MapPixmapItem::paint(QPainter* aPainter, const QStyleOptionGraphicsItem* aO
     const float viewZoom = currentViewZoom();
     const float cx = pixmap().width() / 2.0f;
     const float top = 0.0f;
-    const float rh_x = kRotateHandleRadius / (mScaleX * viewZoom);
-    const float rh_y = kRotateHandleRadius / (mScaleY * viewZoom);
+    const float rhX = kRotateHandleRadius / (mScaleX * viewZoom);
+    const float rhY = kRotateHandleRadius / (mScaleY * viewZoom);
     const float offs = kRotateHandleOffset / (mScaleY * viewZoom);
 
     aPainter->setBrush(mOutlinePen.color());
-    aPainter->drawEllipse(QPointF(cx, top - offs), rh_x, rh_y);
-    aPainter->drawLine(QPointF(cx, top), QPointF(cx, top - offs + rh_y));
+    aPainter->drawEllipse(QPointF(cx, top - offs), rhX, rhY);
+    aPainter->drawLine(QPointF(cx, top), QPointF(cx, top - offs + rhY));
     aPainter->setBrush(Qt::NoBrush);
 
     aPainter->restore();
@@ -171,7 +172,7 @@ void MapPixmapItem::updateCursor(const QPointF& aPos)
             break;
     }
 
-    float ldx, ldy;
+    float ldx = 0.0f, ldy = 0.0f;
     switch (handle) {
         case TopLeft:     ldx = -1; ldy = -1; break;
         case TopRight:    ldx =  1; ldy = -1; break;
@@ -294,13 +295,13 @@ void MapPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent* aEvent)
     const float cosA = std::cos(rad);
     const float sinA = std::sin(rad);
 
-    const float localX_start = startOffset.x() * cosA + startOffset.y() * sinA;
-    const float localY_start = -startOffset.x() * sinA + startOffset.y() * cosA;
-    const float localX_curr = currOffset.x() * cosA + currOffset.y() * sinA;
-    const float localY_curr = -currOffset.x() * sinA + currOffset.y() * cosA;
+    const float localXStart = startOffset.x() * cosA + startOffset.y() * sinA;
+    const float localYStart = -startOffset.x() * sinA + startOffset.y() * cosA;
+    const float localXCurr = currOffset.x() * cosA + currOffset.y() * sinA;
+    const float localYCurr = -currOffset.x() * sinA + currOffset.y() * cosA;
 
-    float ratioX = (std::abs(localX_start) > 1.0f) ? static_cast<float>(std::max(0.0f, localX_curr / localX_start)) : 1.0f;
-    float ratioY = (std::abs(localY_start) > 1.0f) ? static_cast<float>(std::max(0.0f, localY_curr / localY_start)) : 1.0f;
+    const float ratioX = (std::abs(localXStart) > 1.0f) ? static_cast<float>(std::max(0.0f, localXCurr / localXStart)) : 1.0f;
+    const float ratioY = (std::abs(localYStart) > 1.0f) ? static_cast<float>(std::max(0.0f, localYCurr / localYStart)) : 1.0f;
 
     switch (mActiveHandle) {
         case TopLeft:

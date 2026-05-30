@@ -1,6 +1,7 @@
 #include "map.h"
-#include "mappixmapitem.h"
 
+#include <algorithm>
+#include <cmath>
 
 #include <QContextMenuEvent>
 #include <QDragEnterEvent>
@@ -19,6 +20,8 @@
 #include <QUrl>
 #include <QVBoxLayout>
 #include <QWheelEvent>
+
+#include "mappixmapitem.h"
 
 
 
@@ -244,8 +247,7 @@ void MapGraphicsView::wheelEvent(QWheelEvent* aEvent)
     scale(scaleDelta, scaleDelta);
 
     const QPointF delta = anchorViewport - mapFromScene(anchorScene);
-    QTransform t = transform();
-    t = QTransform::fromTranslate(delta.x(), delta.y()) * t;
+    QTransform t = QTransform::fromTranslate(delta.x(), delta.y()) * transform();
     setTransform(t);
 
     mZoomLevel = newZoomLevel;
