@@ -1,0 +1,9 @@
+[submodule "subs/redux-cpp"]
+	path = subs/redux-cpp
+	url = https://github.com/xwilson03/redux-cpp
+[submodule "subs/reflect-cpp"]
+	path = subs/reflect-cpp
+	url = https://github.com/getml/reflect-cpp
+[submodule "subs/yaml-cpp"]
+	path = subs/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp

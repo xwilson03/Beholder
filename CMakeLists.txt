@@ -1,5 +1,6 @@
 # Configure CMake version and project metadata
-cmake_minimum_required(VERSION 3.21.1)
+cmake_minimum_required(VERSION 3.28)
+
 project(
   Beholder
   VERSION 0.0.0.0
@@ -16,5 +17,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add subdirectories
+add_subdirectory(subs)
 add_subdirectory(lib)
 add_subdirectory(app)

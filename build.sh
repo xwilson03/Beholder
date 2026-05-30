@@ -20,7 +20,8 @@ cmake \
     -G Ninja       \
     -S $SOURCE_DIR \
     -B $BUILD_DIR  \
-    -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR
+    -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
+    -DCMAKE_CXX_COMPILER:FILEPATH=$(which clang++)
 
 cmake --build $BUILD_DIR
 cmake --install $BUILD_DIR
