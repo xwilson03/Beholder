@@ -1,7 +1,7 @@
 ## 1. Schema Library
 
-- [ ] 1.1 `money.cppm` exporting `beholder.types.Money`
-- [ ] 1.2 `lib/schema/` CMake wiring and `lib/schema/money/` target `schema_money`
+- [x] 1.1 `money.cppm` exporting `beholder.types.Money`
+- [x] 1.2 `lib/schema/` CMake wiring and `lib/schema/money/` target `schema_money`
 
 ## 2. Testing
 
