@@ -2,6 +2,8 @@
 
 - [x] 1.1 `money.cppm` exporting `beholder.types.Money`
 - [x] 1.2 `lib/schema/` CMake wiring and `lib/schema/money/` target `schema_money`
+- [ ] 1.3 `lib/io/money/io.cpp` CMake wiring and `lib/io/money/` target `io_money`
+- [ ] 1.4 `lib/io/` CMake wiring and `lib/io/money/` target `io_money`
 
 ## 2. Testing
 

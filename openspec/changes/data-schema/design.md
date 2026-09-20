@@ -24,7 +24,8 @@
 ### 2. IO
 
 - Types de/serialize using `rfl::yaml` directly
-- Types with special notation such as `1gp = 1 gold` use rflcpp Reflectors
+- Types with special notation such as `1gp = 1 gold` implement a `lib/io/<type>/` library using rflcpp Reflectors
+- CMake targets namespaced by underscore: `io_<type>`
 
 ### 3. Testing
 
