@@ -7,7 +7,7 @@
 
 ## 2. Testing
 
-- [ ] 2.1 Enable testing; `tests/CMakeLists.txt` with `find_package(GTest)`
+- [x] 2.1 Enable testing; `tests/CMakeLists.txt` with `find_package(GTest)`, called from build script
 - [ ] 2.2 `tests/money/test_money.cpp`: tests serialization of money from special notation
 - [ ] 2.3 Register `test_money` and confirm tests pass
 

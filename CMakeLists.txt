@@ -8,8 +8,8 @@ project(
   LANGUAGES CXX
 )
 
-# Set and require C++ Standard 20
-set(CMAKE_CXX_STANDARD 20)
+# Set and require C++ Standard 23
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -20,3 +20,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_subdirectory(subs)
 add_subdirectory(lib)
 add_subdirectory(app)
+
+# Enable testing
+include(CTest)
+if(BUILD_TESTING)
+  add_subdirectory(tests)
+endif()

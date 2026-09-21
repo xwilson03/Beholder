@@ -1,0 +1,9 @@
+copper: "1cp"
+silver: "2sp"
+electrum: "3ep"
+gold: "4gp"
+platinum: "5pp"
+
+negative: "-1gp"
+missing: "gp"
+garbage: "blah"

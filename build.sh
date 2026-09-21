@@ -4,6 +4,7 @@
 while [[ $# -gt 0 ]]; do
 case $1 in
     -c|--clean) CLEAN=; shift;;
+    -t|--test) TEST=; shift;;
 esac
 done
 
@@ -25,3 +26,5 @@ cmake \
 
 cmake --build $BUILD_DIR
 cmake --install $BUILD_DIR
+
+[[ -v TEST ]] && ctest --test-dir $BUILD_DIR --output-on-failure

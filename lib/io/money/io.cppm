@@ -1,12 +1,16 @@
+module;
+
 #include <regex>
 #include <sstream>
+#include <utility>
 
 #include <rfl.hpp>
 #include <rfl/yaml.hpp>
 
 import beholder.types.Money;
-
 using beholder::types::Money;
+
+export module beholder.io.Money;
 
 
 namespace rfl {
@@ -35,6 +39,9 @@ struct Reflector<Money> {
                 case 'e': out.electrum += count;
                 case 'g': out.gold     += count;
                 case 'p': out.platinum += count;
+                default:
+                    assert(false && "Encountered unexpected currency somehow!");
+                    std::unreachable();
             }
         }
 
