@@ -9,4 +9,8 @@ db.version(1).stores({
     spells: '++id'
 });
 
+db.open().catch(() => {
+    console.log("Failed to open Dexie Database.")
+});
+
 export { db }
