@@ -32,6 +32,11 @@ Window {
 
                 NamePlate { ColumnLayout.fillWidth: true }
 
+                StatLine {
+                    ColumnLayout.fillWidth: true
+                    ColumnLayout.minimumHeight: childrenRect.height + 25
+                }
+
                 Rectangle { // Filler
                     ColumnLayout.fillWidth: true
                     ColumnLayout.fillHeight: true
@@ -66,11 +71,6 @@ Window {
                 spacing: Theme.fg.thin
 
                 CombatPanel {}
-
-                StatLine {
-                    ColumnLayout.fillWidth: true
-                    ColumnLayout.minimumHeight: childrenRect.height + 25
-                }
 
                 EquipmentPanel {
                     ColumnLayout.fillWidth: true

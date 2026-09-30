@@ -8,6 +8,7 @@ BUILD_DIR=$REPO_DIR/build
 INSTALL_DIR=$REPO_DIR/install
 
 cmake                                 \
+  -G Ninja                            \
   -S $REPO_DIR                        \
   -B $BUILD_DIR                       \
   -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR
